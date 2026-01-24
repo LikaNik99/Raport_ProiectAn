@@ -4,25 +4,15 @@ Acest repository conține lucrările studenților organizați pe branch-uri sepa
 
 Pentru a vizualiza lucrările unui anumit student, trebuie să comuți branch-ul corespunzător.
 
-Instrucțiuni rapide pentru comutare branch
-1. Clonează repository-ul (prima dată)
-bash
-git clone https://github.com/[utilizator]/[nume-repo].git
-cd [nume-repo]
-2. Vezi toate branch-urile disponibile
-bash
-git branch -a
-Sau online pe GitHub: Code → Branches
-
 3. Comută pe branch-ul studentului dorit
 bash
 git checkout [nume-student]
 Exemple:
 
 bash
-git checkout student1     # Lucrările lui Student1
-git checkout ana-popescu  # Lucrările Anei Popescu
-git checkout ion-marin    # Lucrările lui Ion Marin
+git checkout josu_ion     # Lucrările lui Josu Ion
+git checkout cocieru_emil  # Lucrările lui Cocieru Emil
+
 4. Întoarce-te pe main
 bash
 git checkout main
