@@ -1,0 +1,43 @@
+# Multi-stage build: Stage 1 - Build the application
+FROM eclipse-temurin:21-jdk-alpine AS builder
+
+# Install Maven
+RUN apk add --no-cache maven
+
+# Set working directory
+WORKDIR /build
+
+# Copy pom.xml and download dependencies (for better caching)
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy source code
+COPY src ./src
+
+# Build the application (skip tests for faster builds)
+RUN mvn clean package -DskipTests
+
+# Stage 2 - Run the application
+FROM eclipse-temurin:21-jre-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy the built JAR from builder stage
+COPY --from=builder /build/target/server-logare-1.0-SNAPSHOT.jar /app/server.jar
+
+# Copy SQL files for database initialization
+COPY sql/ /app/sql/
+
+# Expose the server port
+EXPOSE 5000
+
+# Set environment variables (will be overridden by docker-compose)
+ENV DB_HOST=postgres
+ENV DB_PORT=5432
+ENV DB_NAME=logare_db
+ENV DB_USER=postgres
+ENV DB_PASS=postgres
+
+# Run the server
+CMD ["java", "-jar", "/app/server.jar"]
