@@ -1,0 +1,483 @@
+{
+  "CR-221FR": [
+    {
+      "ziua": "Luni",
+      "data": "2025-09-15",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Testare Software",
+      "profesor": "Cărbune V.",
+      "sala": "Auditoriu 722"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-16",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 505"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-16",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Programare concurentă și distribuită",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 619"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "08:00-11:15",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 402"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "11:30-13:00",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 722"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 720"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-18",
+      "ora": "08:00-11:15",
+      "tip": "Curs",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 402"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-18",
+      "ora": "11:30-13:00",
+      "tip": "Curs",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 224"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-18",
+      "ora": "13:30-18:30",
+      "tip": "Seminar",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Kapusteanschi M.",
+      "sala": "Auditoriu 217"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-19",
+      "ora": "08:00-11:15",
+      "tip": "Curs",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 201"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-19",
+      "ora": "11:30-13:00",
+      "tip": "Curs",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 709"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-19",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Testare Software",
+      "profesor": "Cărbune V.",
+      "sala": "Auditoriu 215"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-20",
+      "ora": "08:00-13:00",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 310"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-20",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Aplicație Client-Server",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 217"
+    },
+    {
+      "ziua": "Duminică",
+      "data": "2025-09-21",
+      "ora": "08:00-13:00",
+      "tip": "Laborator",
+      "disciplina": "Aplicație Client-Server",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 217"
+    },
+    {
+      "ziua": "Duminică",
+      "data": "2025-09-21",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Programare concurentă și distribuită",
+      "profesor": "Kapusteanschi M.",
+      "sala": "Auditoriu 217"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 718"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "13:30-15:00",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 609"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "15:15-18:30",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 405"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-23",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Programare concurentă și distribuită",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 515"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-23",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Testare software",
+      "profesor": "Cărbune V.",
+      "sala": "Auditoriu 604"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-24",
+      "ora": "08:00-15:00",
+      "tip": "Seminar",
+      "disciplina": "Programare concurentă și distribuită",
+      "profesor": "Rotaru L.",
+      "sala": "Auditoriu 709"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-24",
+      "ora": "15:15-18:30",
+      "tip": "Laborator",
+      "disciplina": "Programare concurentă și distribuită",
+      "profesor": "Kapusteanschi M.",
+      "sala": "Auditoriu 215"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-25",
+      "ora": "08:00-13:00",
+      "tip": "Seminar",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 011"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-25",
+      "ora": "13:30-18:30",
+      "tip": "Seminar",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Kapusteanschi M.",
+      "sala": "Auditoriu 217"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-26",
+      "ora": "15:15-20:15",
+      "tip": "Laborator",
+      "disciplina": "Programare de sistem și de rețea",
+      "profesor": "Moraru V.",
+      "sala": "Auditoriu 215"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-27",
+      "ora": "08:00-13:00",
+      "tip": "Laborator",
+      "disciplina": "Testare software",
+      "profesor": "Cărbune V.",
+      "sala": "Auditoriu 215"
+    }
+  ],
+  "TI-221FR": [
+    {
+      "ziua": "Luni",
+      "data": "2025-09-15",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Colesnic V.",
+      "sala": "Auditoriu 718"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-16",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 505"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-16",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Colesnic V.",
+      "sala": "Auditoriu 107"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "08:00-11:15",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 402"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "11:30-13:00",
+      "tip": "Curs",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 722"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-17",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 609"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-18",
+      "ora": "09:45-13:00",
+      "tip": "Curs",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 720"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-18",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Inteligență artificială",
+      "profesor": "Rusu M.",
+      "sala": "Auditoriu 107"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-19",
+      "ora": "09:45-13:00",
+      "tip": "Curs",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Colesnic V.",
+      "sala": "Auditoriu 524"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-19",
+      "ora": "13:30-18:30",
+      "tip": "Curs",
+      "disciplina": "Inteligență artificială",
+      "profesor": "Rusu M.",
+      "sala": "Auditoriu 404"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-20",
+      "ora": "08:00-13:00",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 310"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-20",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 502"
+    },
+    {
+      "ziua": "Duminică",
+      "data": "2025-09-21",
+      "ora": "08:00-15:00",
+      "tip": "Laborator",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Colesnic V.",
+      "sala": "Auditoriu 628"
+    },
+    {
+      "ziua": "Duminică",
+      "data": "2025-09-21",
+      "ora": "15:15-18:30",
+      "tip": "Laborator",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 628"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Testarea produselor program",
+      "profesor": "Prisăcaru A.",
+      "sala": "Auditoriu 630"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "13:30-15:00",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 609"
+    },
+    {
+      "ziua": "Luni",
+      "data": "2025-09-22",
+      "ora": "15:15-18:30",
+      "tip": "Seminar",
+      "disciplina": "Antreprenoriat",
+      "profesor": "Gumeniuc I.",
+      "sala": "Auditoriu 405"
+    },
+    {
+      "ziua": "Marți",
+      "data": "2025-09-23",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Sisteme de operare",
+      "profesor": "Colesnic V.",
+      "sala": "Auditoriu 503"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-24",
+      "ora": "08:00-13:00",
+      "tip": "Curs",
+      "disciplina": "Testarea produselor program",
+      "profesor": "Prisăcaru A.",
+      "sala": "Auditoriu 609"
+    },
+    {
+      "ziua": "Miercuri",
+      "data": "2025-09-24",
+      "ora": "13:30-16:45",
+      "tip": "Seminar",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 720"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-25",
+      "ora": "08:00-13:00",
+      "tip": "Seminar",
+      "disciplina": "Testarea produselor program",
+      "profesor": "Prisăcaru A.",
+      "sala": "Auditoriu 516"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-25",
+      "ora": "13:30-16:45",
+      "tip": "Laborator",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 613"
+    },
+    {
+      "ziua": "Joi",
+      "data": "2025-09-25",
+      "ora": "17:00-18:30",
+      "tip": "Seminar",
+      "disciplina": "Baze de date",
+      "profesor": "Saranciuc D.",
+      "sala": "Auditoriu 501"
+    },
+    {
+      "ziua": "Vineri",
+      "data": "2025-09-26",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Inteligență artificială",
+      "profesor": "Rusu M.",
+      "sala": "Auditoriu 518"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-27",
+      "ora": "08:00-13:00",
+      "tip": "Seminar",
+      "disciplina": "Testarea produselor program",
+      "profesor": "Prisăcaru A.",
+      "sala": "Auditoriu 516"
+    },
+    {
+      "ziua": "Sâmbătă",
+      "data": "2025-09-27",
+      "ora": "13:30-18:30",
+      "tip": "Laborator",
+      "disciplina": "Inteligență artificială",
+      "profesor": "Rusu M.",
+      "sala": "Auditoriu 502"
+    }
+  ]
+}
