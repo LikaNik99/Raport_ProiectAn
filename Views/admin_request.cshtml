@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalii cerere - Admin</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="login-page">
+    <div class="admin-request-container">
+        <div class="admin-request-card">
+            <h2>Detalii cerere de acces</h2>
+            <div class="request-status-row">
+                <span class="request-status requested">Requested</span>
+                <span class="request-time">Acum câteva secunde</span>
+            </div>
+            <div class="request-title" id="requestTitle">Acces cameră de supraveghere</div>
+            <div class="request-meta-block">
+                <div class="request-meta-box"><div class="request-meta-row"><span class="request-label">Status:</span> <span class="request-value">Requested</span></div></div>
+                <div class="request-meta-box"><div class="request-meta-row"><span class="request-label">Solicitant:</span> <span class="request-value">Ion Popescu</span></div></div>
+                <div class="request-meta-box"><div class="request-meta-row"><span class="request-label">Scop:</span> <span class="request-value">Verificare incident zona X</span></div></div>
+                <div class="request-meta-box"><div class="request-meta-row"><span class="request-label">Detalii:</span> <span class="request-value">Am nevoie de acces la camera pentru a verifica o alertă de securitate.</span></div></div>
+                <div class="request-meta-box"><div class="request-meta-row"><span class="request-label">Prioritate:</span> <span class="request-value">scazut</span></div></div>
+            </div>
+            <div class="request-passwords-block" style="margin:18px 0 18px 0;">
+                <label style="color:#bdbdbd;font-size:1.08em;font-weight:500;">Alege parola de trimis clientului:</label>
+                <select id="passwordSelect" style="width:100%;margin-top:8px;padding:10px 12px;border-radius:8px;background:#23272f;color:#e0e0e0;font-size:1.08em;">
+                    <option value="">-- Selectează o parolă --</option>
+                </select>
+                <div id="passwordDetails" style="margin-top:10px;color:#bdbdbd;font-size:0.98em;"></div>
+            </div>
+            <form class="admin-action-form">
+                <label for="adminComment">Comentariu <span class="required">*</span></label>
+                <textarea id="adminComment" name="adminComment" rows="3" required placeholder="Adaugă un comentariu aici..."></textarea>
+                <div class="admin-action-buttons">
+                    <button type="button" class="reject-btn">Reject</button>
+                    <button type="submit" class="approve-btn">Approve</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="~/js/admin_request.js"></script>
+</body>
+</html>

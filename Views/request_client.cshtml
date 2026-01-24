@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerere acces parolă</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="login-page">
+    <div class="request-container">
+        <form class="request-form">
+            <h2>Creează o cerere de acces</h2>
+            <label for="requestName">Nume cerere <span class="required">*</span></label>
+            <input type="text" id="requestName" name="requestName" required placeholder="Ex: Acces cameră de supraveghere">
+
+            <label for="purpose">Scopul cererii <span class="required">*</span></label>
+            <input type="text" id="purpose" name="purpose" required placeholder="Ex: Am nevoie de acces pentru...">
+
+            <label for="details">Detalii suplimentare</label>
+            <textarea id="details" name="details" rows="3" placeholder="Orice alte informații relevante..."></textarea>
+
+            <label for="priority">Prioritate</label>
+            <select id="priority" name="priority" required>
+                <option value="" disabled selected>Alege o prioritate</option>
+                <option value="scazut" class="priority-low">Scăzut</option>
+                <option value="mediu" class="priority-medium">Mediu</option>
+                <option value="ridicat" class="priority-high">Ridicat</option>
+            </select>
+
+            <button type="submit">Trimite cererea</button>
+        </form>
+    </div>
+    <script src="~/js/api-client.js"></script>
+    <script src="~/js/request.js"></script>
+</body>
+</html>

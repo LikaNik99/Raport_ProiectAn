@@ -1,0 +1,834 @@
+input#itemPassword, input#parola-edit {
+    min-width: 180px !important;
+    width: 220px !important;
+    font-size: 1.08em !important;
+    letter-spacing: 0.04em;
+    transition: none !important;
+}
+.styled-form textarea, textarea#itemNote {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+    padding: 10px 12px !important;
+    resize: none !important;
+    overflow: auto !important;
+}
+/* Responsive design pentru întreg programul */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column !important;
+    }
+    .sidebar {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        border-right: none !important;
+        border-bottom: 1.5px solid #23272f !important;
+        padding-bottom: 0.5em !important;
+        position: static !important;
+        z-index: 20;
+    }
+    .main-content {
+        padding: 0.5em !important;
+        min-width: 0 !important;
+        width: 100vw !important;
+    }
+    .header-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 12px 8px !important;
+        min-height: 48px !important;
+    }
+    .header-actions {
+        margin-left: 0 !important;
+        width: 100vw !important;
+        justify-content: flex-end !important;
+        gap: 10px !important;
+    }
+    .modern-btn, .primary-btn, .logout-btn {
+        min-width: 0 !important;
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 10px 0 !important;
+        margin-bottom: 8px !important;
+    }
+    .password-card, .request-history-item {
+        min-width: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+    }
+    .pw-card-main {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        padding: 12px 10px !important;
+    }
+    .pw-card-meta {
+        flex-direction: column !important;
+        gap: 6px !important;
+        font-size: 0.98em !important;
+    }
+    .pw-card-actions {
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-left: 0 !important;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .modal-content, .admin-request-card {
+        min-width: 0 !important;
+        width: 98vw !important;
+        max-width: 99vw !important;
+        padding: 18px 4vw 12px 4vw !important;
+        font-size: 1em !important;
+    }
+    .styled-form input, .styled-form select, .styled-form textarea {
+        font-size: 1em !important;
+        padding: 8px 8px !important;
+    }
+    .section {
+        padding: 10px 8px 6px 8px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column !important;
+        min-width: 0 !important;
+        width: 100vw !important;
+    }
+    .sidebar {
+        display: none !important;
+    }
+    .main-content {
+        width: 100vw !important;
+        min-width: 0 !important;
+        padding: 0.2em !important;
+    }
+    .header-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 8px 2vw !important;
+        min-height: 40px !important;
+        font-size: 0.98em !important;
+    }
+    .header-actions {
+        width: 100vw !important;
+        gap: 6px !important;
+        margin-left: 0 !important;
+        justify-content: flex-end !important;
+    }
+    .modern-btn, .primary-btn, .logout-btn {
+        width: 100% !important;
+        font-size: 0.98em !important;
+        padding: 8px 0 !important;
+        margin-bottom: 6px !important;
+    }
+    .password-card, .request-history-item {
+        width: 100% !important;
+        min-width: 0 !important;
+        font-size: 0.98em !important;
+        padding: 0 !important;
+    }
+    .pw-card-main {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 8px 4px !important;
+    }
+    .pw-card-title {
+        font-size: 1em !important;
+    }
+    .modal-content, .admin-request-card {
+        min-width: 0 !important;
+        width: 99vw !important;
+        max-width: 99vw !important;
+        padding: 10px 2vw 8px 2vw !important;
+        font-size: 0.98em !important;
+    }
+    .styled-form input, .styled-form select, .styled-form textarea {
+        font-size: 0.98em !important;
+        padding: 6px 6px !important;
+    }
+    .section {
+        padding: 6px 4px 4px 4px !important;
+        margin-bottom: 6px !important;
+    }
+}
+/* Carduri parole Bitwarden-like */
+.password-card {
+    background: #232533;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #0005;
+    margin-bottom: 18px;
+    padding: 0;
+    transition: box-shadow 0.18s, border 0.18s;
+    border: 1.5px solid #23272f;
+    overflow: hidden;
+}
+.password-card:hover {
+    box-shadow: 0 6px 24px #1976d255;
+    border-color: #8ab4f8;
+}
+.pw-card-main {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 24px;
+}
+.pw-card-info {
+    flex: 1;
+    min-width: 0;
+}
+.pw-card-title {
+    font-size: 1.18em;
+    font-weight: 700;
+    color: #6d8cff;
+    margin-bottom: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.18s;
+}
+.pw-card-title:hover {
+    color: #ffd54f;
+}
+.pw-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 1em;
+    color: #b8c2e0;
+}
+.pw-card-meta a {
+    color: #8ab4f8;
+    text-decoration: underline;
+    word-break: break-all;
+}
+.pw-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 18px;
+}
+.pw-action-btn {
+    background: #23283a;
+    color: #8ab4f8;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25em;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    outline: none;
+}
+.pw-action-btn:hover {
+    background: #31343b;
+    color: #ffd54f;
+}
+.pw-action-btn.delete {
+    color: #e57373;
+}
+.pw-action-btn.delete:hover {
+    background: #2c2323;
+    color: #ff5252;
+}
+/* --- Header bar and modern buttons --- */
+.header-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #22252b;
+    box-shadow: 0 2px 12px #0003;
+    min-height: 56px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1.5px solid #23272f;
+}
+.header-bar.left-actions {
+    justify-content: flex-start;
+    padding-left: 36px;
+    padding-right: 0;
+}
+.header-bar:not(.left-actions) {
+    justify-content: flex-end;
+    padding-right: 36px;
+    padding-left: 0;
+}
+.header-actions {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+.header-actions {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-left: auto;
+}
+/* Butoane moderne, universale, inspirate de Material/Bootstrap */
+.modern-btn {
+    padding: 10px 28px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    background: #23272f;
+    color: #fff;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+    outline: none;
+    letter-spacing: 0.01em;
+    position: relative;
+    border: 1.5px solid #23272f;
+    min-width: 120px;
+}
+.modern-btn:hover, .modern-btn:focus {
+    background: #31343b;
+    color: #fff;
+    box-shadow: 0 4px 16px #8ab4f84d;
+    transform: translateY(-1px) scale(1.03);
+    border-color: #8ab4f8;
+}
+.modern-btn:active {
+    background: #181b20;
+    color: #fff;
+    box-shadow: 0 1.5px 8px #8ab4f81a;
+    transform: scale(0.98);
+}
+/* Buton principal: albastru, pentru actiuni pozitive */
+.primary-btn {
+    background: #1976d2;
+    color: #fff;
+    border: 1.5px solid #1976d2;
+    box-shadow: 0 2px 12px #1976d255;
+}
+.primary-btn:hover, .primary-btn:focus {
+    background: #1565c0;
+    color: #fff;
+    border-color: #1565c0;
+}
+.primary-btn:active {
+    background: #0d47a1;
+    color: #fff;
+}
+/* Buton logout: rosu, pentru actiuni de iesire */
+.logout-btn {
+    background: #e53935;
+    color: #fff;
+    border: 1.5px solid #e53935;
+    box-shadow: 0 2px 12px #e5393555;
+}
+.logout-btn:hover, .logout-btn:focus {
+    background: #b71c1c;
+    color: #fff;
+    border-color: #b71c1c;
+}
+.logout-btn:active {
+    background: #7f0000;
+    color: #fff;
+}
+/* eliminat dublurile, vezi mai sus pentru stilul complet */
+.primary-btn:active {
+    background: #0d47a1;
+    color: #ffd54f;
+}
+.request-meta-box {
+    background: #23272f;
+    border: 2px solid #8ab4f8;
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px #8ab4f81a;
+    transition: border 0.2s;
+}
+.request-meta-box:hover {
+    border-color: #ffd54f;
+}
+/* Stilizare interfață admin aprobare cerere */
+.admin-request-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #23272f 60%, #2c2f36 100%);
+}
+.admin-request-card {
+    background: #181b20ee;
+    padding: 40px 36px 32px 36px;
+    border-radius: 22px;
+    box-shadow: 0 6px 32px #0007, 0 1.5px 8px #8ab4f81a;
+    min-width: 400px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border: 1.5px solid #23272f;
+}
+.admin-request-card h2 {
+    color: #8ab4f8;
+    margin-bottom: 10px;
+    font-size: 1.35em;
+    font-weight: 700;
+    text-align: center;
+}
+.request-status-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 6px;
+}
+.request-status {
+    padding: 3px 14px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 600;
+    background: #23272f;
+    color: #8ab4f8;
+    border: 1.5px solid #8ab4f8;
+}
+.request-status.requested {
+    background: #23272f;
+    color: #ffd54f;
+    border-color: #ffd54f;
+}
+.request-time {
+    color: #bdbdbd;
+    font-size: 0.98em;
+}
+.request-title {
+    font-size: 1.18em;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+}
+.request-meta {
+    color: #bdbdbd;
+    font-size: 1em;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 2px;
+}
+.request-purpose, .request-details {
+    color: #e0e0e0;
+    font-size: 1em;
+    margin-bottom: 2px;
+}
+.admin-action-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+.admin-action-form label {
+    color: #bdbdbd;
+    font-size: 1.08em;
+    font-weight: 500;
+}
+.admin-action-form textarea {
+    padding: 12px 12px;
+    border-radius: 10px;
+    border: 1.7px solid #2c2f36;
+    background: #23272f;
+    color: #e0e0e0;
+    font-size: 1.08em;
+    outline: none;
+    margin-bottom: 8px;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1.5px 8px #8ab4f81a;
+    resize: none;
+    min-height: 60px;
+    max-height: 180px;
+    font-family: inherit;
+}
+.admin-action-form textarea:focus {
+    border: 1.7px solid #8ab4f8;
+    box-shadow: 0 0 0 2px #8ab4f84d;
+}
+.admin-action-buttons {
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+.admin-action-buttons button {
+    min-width: 110px;
+    padding: 12px 0;
+    border-radius: 24px;
+    font-size: 1.08em;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1.5px 8px #8ab4f81a;
+}
+.approve-btn {
+    background: #4caf50;
+    color: #23272f;
+}
+.approve-btn:disabled {
+    background: #4caf504d;
+    color: #23272f99;
+    cursor: not-allowed;
+}
+.reject-btn {
+    background: #e57373;
+    color: #23272f;
+}
+.reject-btn:disabled {
+    background: #e573734d;
+    color: #23272f99;
+    cursor: not-allowed;
+}
+.request-form select {
+    font-weight: 600;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%238ab4f8' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 36px;
+}
+
+/* Stilizare opțiuni prioritate */
+.request-form select option[value="scazut"] {
+    background: #1e2a1e;
+    color: #81c784;
+    font-weight: 600;
+}
+.request-form select option[value="mediu"] {
+    background: #2a2416;
+    color: #ffd54f;
+    font-weight: 600;
+}
+.request-form select option[value="ridicat"] {
+    background: #2a1e1e;
+    color: #e57373;
+    font-weight: 600;
+}
+
+/* Culori pentru select când e selectată o opțiune */
+.request-form select[data-priority="scazut"] {
+    color: #81c784;
+    border-color: #81c784;
+}
+.request-form select[data-priority="mediu"] {
+    color: #ffd54f;
+    border-color: #ffd54f;
+}
+.request-form select[data-priority="ridicat"] {
+    color: #e57373;
+    border-color: #e57373;
+}
+/* Stilizare formular cerere acces */
+.request-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #23272f 60%, #2c2f36 100%);
+}
+.request-form {
+    background: #181b20ee;
+    padding: 40px 36px 32px 36px;
+    border-radius: 22px;
+    box-shadow: 0 6px 32px #0007, 0 1.5px 8px #8ab4f81a;
+    display: flex;
+    flex-direction: column;
+    min-width: 370px;
+    max-width: 95vw;
+    gap: 18px;
+    border: 1.5px solid #23272f;
+}
+.request-form h2 {
+    color: #8ab4f8;
+    margin-bottom: 10px;
+    font-size: 1.35em;
+    font-weight: 700;
+    text-align: center;
+}
+.request-form label {
+    color: #bdbdbd;
+    font-size: 1.08em;
+    margin-bottom: 4px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.request-form .required {
+    font-size: 0.93em;
+    color: #8ab4f8;
+    margin-left: 2px;
+    font-weight: 400;
+}
+.request-form input[type="text"],
+.request-form textarea,
+.request-form select {
+    padding: 12px 12px;
+    border-radius: 10px;
+    border: 1.7px solid #2c2f36;
+    background: #23272f;
+    color: #e0e0e0;
+    font-size: 1.08em;
+    outline: none;
+    margin-bottom: 8px;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1.5px 8px #8ab4f81a;
+    resize: none;
+}
+.request-form input[type="text"]:focus,
+.request-form textarea:focus,
+.request-form select:focus {
+    border: 1.7px solid #8ab4f8;
+    box-shadow: 0 0 0 2px #8ab4f84d;
+}
+.request-form textarea {
+    min-height: 60px;
+    max-height: 180px;
+}
+.request-form button {
+    background: linear-gradient(90deg, #8ab4f8 60%, #6d9ee6 100%);
+    color: #23272f;
+    border: none;
+    border-radius: 28px;
+    padding: 15px 0;
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #8ab4f84d;
+    letter-spacing: 0.01em;
+}
+.request-form button:hover {
+    background: linear-gradient(90deg, #6d9ee6 60%, #8ab4f8 100%);
+    box-shadow: 0 4px 16px #8ab4f84d;
+}
+/* Stilizare login admin */
+body.login-page {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #23272f 60%, #2c2f36 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form {
+    background: #181b20ee;
+    padding: 40px 36px 32px 36px;
+    border-radius: 22px;
+    box-shadow: 0 6px 32px #0007, 0 1.5px 8px #8ab4f81a;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    max-width: 95vw;
+    gap: 22px;
+    border: 1.5px solid #23272f;
+}
+/* Eticheta inputului */
+.login-form label {
+    color: #bdbdbd;
+    font-size: 1.13em;
+    margin-bottom: 4px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.login-form .required {
+    font-size: 0.93em;
+    color: #8ab4f8;
+    margin-left: 2px;
+    font-weight: 400;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 14px 14px;
+    border-radius: 10px;
+    border: 1.7px solid #2c2f36;
+    background: #23272f;
+    color: #e0e0e0;
+    font-size: 1.13em;
+    outline: none;
+    margin-bottom: 10px;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1.5px 8px #8ab4f81a;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border: 1.7px solid #8ab4f8;
+    box-shadow: 0 0 0 2px #8ab4f84d;
+}
+.remember-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+.login-form input[type="checkbox"] {
+    accent-color: #8ab4f8;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+.login-form button {
+    background: linear-gradient(90deg, #8ab4f8 60%, #6d9ee6 100%);
+    color: #23272f;
+    border: none;
+    border-radius: 28px;
+    padding: 15px 0;
+    font-size: 1.18em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #8ab4f84d;
+    letter-spacing: 0.01em;
+}
+.login-form button:hover {
+    background: linear-gradient(90deg, #6d9ee6 60%, #8ab4f8 100%);
+    box-shadow: 0 4px 16px #8ab4f84d;
+}
+body {
+    background: #23272f;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.sidebar {
+    width: 270px;
+    background: #181b20;
+    padding: 20px 10px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid #2c2f36;
+}
+.sidebar input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #2c2f36;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+.sidebar nav ul li {
+    padding: 6px 0;
+    cursor: pointer;
+    color: #bdbdbd;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.sidebar nav ul li:hover {
+    background: #31343b;
+    color: #fff;
+}
+.sidebar h4 {
+    margin: 10px 0 5px 0;
+    font-size: 0.95em;
+    color: #8ab4f8;
+    font-weight: 500;
+}
+.main-content {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.main-content header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-weight: 600;
+    color: #8ab4f8;
+    border-bottom: 1px solid #2c2f36;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+#password-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.password-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #23272f;
+    border-radius: 6px;
+    padding: 12px 10px;
+    transition: background 0.2s;
+}
+.password-item:hover {
+    background: #31343b;
+}
+.password-title {
+    flex: 1;
+    color: #fff;
+    font-weight: 500;
+}
+.password-owner {
+    background: #f4e285;
+    color: #23272f;
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+/* Animații pentru modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { 
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #2c2f36;
+    }
+    .main-content {
+        padding: 20px 10px;
+    }
+}
