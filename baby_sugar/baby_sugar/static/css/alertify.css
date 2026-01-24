@@ -1,0 +1,51 @@
+
+.alertify-logs {
+  position: fixed;
+  z-index: 5000;
+  bottom: 50px;
+  right: 10px;
+  width: 300px;
+}
+
+.alertify-logs-hidden {
+  display: none;
+}
+
+.alertify-log {
+  display: block;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 4px;
+  color: #fff;
+  opacity: 0;
+  transform: translateX(300px);
+  transition: all 900ms ease;
+}
+
+.alertify-log-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.alertify-log-hide {
+  opacity: 0;
+  transform: translateX(300px);
+}
+
+/* TYPES */
+
+.alertify-log-success {
+  background: rgba(92, 184, 17, 0.9);
+}
+
+.alertify-log-error {
+  background: rgba(254, 26, 0, 0.9);
+}
+
+.alertify-log-warning {
+  background: rgba(255, 193, 7, 0.9);
+}
+
+.alertify-log-info {
+  background: rgba(33, 150, 243, 0.9);
+}

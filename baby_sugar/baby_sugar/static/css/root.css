@@ -1,0 +1,82 @@
+/* ===============================
+   LIGHT MODE – default
+================================ */
+:root {
+
+  /* CHIFFON (background principal) */
+  --bs-chiffon:      rgba(248, 243, 230, 1);
+  --bs-chiffon-90:   rgba(248, 243, 230, 0.9);
+  --bs-chiffon-75:   rgba(248, 243, 230, 0.75);
+  --bs-chiffon-50:   rgba(248, 243, 230, 0.5);
+  --bs-chiffon-25:   rgba(248, 243, 230, 0.25);
+
+  /* VANILLA (surface) */
+  --bs-vanilla:      rgba(231, 204, 143, 1);
+  --bs-vanilla-90:   rgba(231, 204, 143, 0.9);
+  --bs-vanilla-75:   rgba(231, 204, 143, 0.75);
+  --bs-vanilla-50:   rgba(231, 204, 143, 0.5);
+  --bs-vanilla-25:   rgba(231, 204, 143, 0.25);
+
+  /* BUTTERCUP (accent) */
+  --bs-buttercup:    rgba(239, 170, 82, 1);
+  --bs-buttercup-90: rgba(239, 170, 82, 0.9);
+  --bs-buttercup-75: rgba(239, 170, 82, 0.75);
+  --bs-buttercup-50: rgba(239, 170, 82, 0.5);
+  --bs-buttercup-25: rgba(239, 170, 82, 0.25);
+
+  /* RUST (danger / emphasis) */
+  --bs-rust:         rgba(171, 62, 22, 1);
+  --bs-rust-90:      rgba(171, 62, 22, 0.9);
+  --bs-rust-75:      rgba(171, 62, 22, 0.75);
+  --bs-rust-50:      rgba(171, 62, 22, 0.5);
+  --bs-rust-25:      rgba(171, 62, 22, 0.25);
+
+  /* MAHOGANY (text) */
+  --bs-mahogany:     rgba(72, 18, 14, 1);
+  --bs-mahogany-90:  rgba(72, 18, 14, 0.9);
+  --bs-mahogany-75:  rgba(72, 18, 14, 0.75);
+  --bs-mahogany-50:  rgba(72, 18, 14, 0.5);
+  --bs-mahogany-25:  rgba(72, 18, 14, 0.25);
+}
+
+
+/* ===============================
+   DARK MODE – backend controlled
+================================ */
+html[data-theme="dark"] {
+
+  /* CHIFFON → dark surface */
+  --bs-chiffon:      rgba(30, 30, 30, 1);
+  --bs-chiffon-90:   rgba(30, 30, 30, 0.9);
+  --bs-chiffon-75:   rgba(30, 30, 30, 0.75);
+  --bs-chiffon-50:   rgba(30, 30, 30, 0.5);
+  --bs-chiffon-25:   rgba(30, 30, 30, 0.25);
+
+  /* VANILLA → dark secondary surface */
+  --bs-vanilla:      rgba(42, 42, 42, 1);
+  --bs-vanilla-90:   rgba(42, 42, 42, 0.9);
+  --bs-vanilla-75:   rgba(42, 42, 42, 0.75);
+  --bs-vanilla-50:   rgba(42, 42, 42, 0.5);
+  --bs-vanilla-25:   rgba(42, 42, 42, 0.25);
+
+  /* BUTTERCUP (accent rămâne) */
+  --bs-buttercup:    rgba(239, 170, 82, 1);
+  --bs-buttercup-90: rgba(239, 170, 82, 0.9);
+  --bs-buttercup-75: rgba(239, 170, 82, 0.75);
+  --bs-buttercup-50: rgba(239, 170, 82, 0.5);
+  --bs-buttercup-25: rgba(239, 170, 82, 0.25);
+
+  /* RUST (contrast dark) */
+  --bs-rust:         rgba(217, 119, 69, 1);
+  --bs-rust-90:      rgba(217, 119, 69, 0.9);
+  --bs-rust-75:      rgba(217, 119, 69, 0.75);
+  --bs-rust-50:      rgba(217, 119, 69, 0.5);
+  --bs-rust-25:      rgba(217, 119, 69, 0.25);
+
+  /* MAHOGANY → text light */
+  --bs-mahogany:     rgba(245, 233, 228, 1);
+  --bs-mahogany-90:  rgba(245, 233, 228, 0.9);
+  --bs-mahogany-75:  rgba(245, 233, 228, 0.75);
+  --bs-mahogany-50:  rgba(245, 233, 228, 0.5);
+  --bs-mahogany-25:  rgba(245, 233, 228, 0.25);
+}

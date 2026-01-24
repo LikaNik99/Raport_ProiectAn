@@ -1,0 +1,262 @@
+@import url("../vendor/fontawesome/css/all.min.css");
+@import url('inbox_badge.css');
+@import url('alertify.css');
+@import url('search.css');
+@import url("/static/product/css/product.css");
+@import url("btn_wishlist.css");
+@import url("btn.css");
+@import url("breadcrumbs.css");
+@import url("carousel.css");
+
+:root {
+  --bs-chiffon:   #F8F3E6;
+  --bs-vanilla:   #E7CC8F;
+  --bs-buttercup: #EFAA52;
+  --bs-rust:      #AB3E16;
+  --bs-mahogany:  #48120E;
+}
+
+
+header a {
+  color: var(--color-mahogany);
+}
+
+.logo_text{
+  color: var(--color-mahogany);
+}
+
+
+/* efecte pe form currency */
+select.form-select:focus,.form-select:focus-visible{
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+select.form-select:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   INPUTS – PALETA TA
+================================ */
+
+/* bază */
+.form-control {
+  background-color: var(--bs-chiffon);
+  border: 1px solid var(--bs-vanilla);
+  color: var(--bs-mahogany);
+
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* placeholder */
+.form-control::placeholder {
+  color: var(--bs-rust);
+  opacity: 0.6;
+}
+
+/* focus */
+.form-control:focus {
+  background-color: var(--bs-chiffon);
+  border-color: var(--bs-buttercup);
+  color: var(--bs-mahogany);
+
+  box-shadow: 0 0 0 3px rgba(239, 170, 82, 0.35);
+}
+
+/* label */
+.form-label {
+  color: var(--bs-mahogany);
+  font-weight: 600;
+}
+
+/* input disabled (bonus) */
+.form-control:disabled {
+  background-color: var(--bs-vanilla);
+  opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+.notif-consent {
+  position: fixed;
+
+  /* 👇 IMPORTANT */
+  top: env(safe-area-inset-top, 0px);
+  margin-top: 16px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10000;
+
+  background: #ffffff;
+  color: #000;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  width: auto;
+  max-width: calc(100vw - 32px);
+  min-width: 260px;
+
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .notif-consent {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
+
+
+
+/* butoane */
+.notif-consent .actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ☀️ Light mode */
+html:not([data-theme="dark"]) .notif-consent {
+  background: #e7f3ff;
+  color: #084298;
+  border-color: #b6d4fe;
+}
+
+/* 🌙 Dark mode */
+html[data-theme="dark"] .notif-consent {
+  background: #1f2933;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+
+
+/* order card */
+.order-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+/* HEADER – LIGHT MODE */
+.header-main,
+.header-body {
+  background-color: var(--bs-chiffon);
+  color: var(--bs-mahogany);
+}
+
+/* HEADER TOP BAR */
+.header-main .bg-secondary {
+  background-color: var(--bs-rust) !important;
+}
+
+/* LINKURI HEADER */
+.header-main a,
+.header-main i {
+  color: var(--bs-mahogany);
+}
+
+/* ICONURI SOCIALE */
+.header-main .fa-brands {
+  color: #fff;
+}
+
+/* 🌙 DARK MODE */
+html[data-theme="dark"] .header-main,
+html[data-theme="dark"] .header-body {
+  background-color: var(--bs-vanilla);
+  color: var(--bs-mahogany);
+}
+
+html[data-theme="dark"] .header-main a,
+html[data-theme="dark"] .header-main i {
+  color: var(--bs-mahogany);
+}
+
+.header-select {
+  background: transparent;
+  color: inherit;
+}
+
+.header-select option {
+  color: var(--bs-mahogany);
+  background-color: var(--bs-chiffon);
+}
+
+html[data-theme="dark"] .header-select option {
+  background-color: var(--bs-vanilla);
+}
+
+.header-main .text-white {
+  color: inherit !important;
+}
+
+
+/* FOOTER – light */
+.footer-main {
+  background-color: var(--bs-rust);
+  color: #fff;
+}
+
+/* footer text */
+.footer-main p {
+  margin: 0;
+}
+
+/* 🌙 dark mode */
+html[data-theme="dark"] .footer-main {
+  background-color: var(--bs-rust);
+  color: #e5e7eb;
+}
+
+
+/* SMART MENU – light */
+.smart_menu {
+  background-color: var(--bs-chiffon);
+}
+
+/* iconuri */
+.smart_menu a,
+.smart_menu i {
+  color: var(--bs-mahogany);
+}
+
+/* 🌙 dark mode */
+html[data-theme="dark"] .smart_menu {
+  background-color: var(--bs-vanilla);
+}
+
+html[data-theme="dark"] .smart_menu a,
+html[data-theme="dark"] .smart_menu i {
+  color: var(--bs-mahogany);
+}
+

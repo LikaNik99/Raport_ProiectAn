@@ -1,0 +1,58 @@
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+  <div class="col-12 col-md-7 col-lg-5">
+
+      <div class="card-body p-4 p-md-5">
+
+        <h2 class="mb-3 text-center fw-bold">Creează cont</h2>
+        <p class="text-center text-muted mb-4">
+          Creează un cont nou în câteva secunde
+        </p>
+
+        <form method="post" action="{% url 'customer:register' %}">
+          {% csrf_token %}
+
+          {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+          {% endif %}
+
+          {% for field in form %}
+            <div class="mb-3">
+              <label class="form-label fw-semibold">
+                {{ field.label }}
+              </label>
+
+              {{ field }}
+
+              {% if field.help_text %}
+                <div class="form-text">
+                  {{ field.help_text }}
+                </div>
+              {% endif %}
+
+              {% if field.errors %}
+                <div class="text-danger small mt-1">
+                  {{ field.errors }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <button class="btn btn-mahogany w-100 py-2 mt-2">
+            Creează cont
+          </button>
+        </form>
+
+        <hr class="my-4">
+
+        <p class="text-center mb-0">
+          Ai deja cont?
+          <a href="{% url 'customer:login' %}" class="fw-semibold text-mahogany">
+            Loghează-te
+          </a>
+        </p>
+
+      </div>
+
+
+  </div>
+</div>

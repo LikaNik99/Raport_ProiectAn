@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+  {% for order in orders %}
+    {% if order.status == status %}
+
+      <div class="col-12 col-md-10 col-lg-8">
+        <a href="{% url 'orders:order_detail' order.id %}"
+           class="text-decoration-none">
+
+          <div class="card mb-3 shadow-sm bg-vanilla order-card">
+            <div class="card-body py-3 px-4">
+
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+
+                <!-- LEFT -->
+                <div>
+                  <div class="fw-bold text-mahogany fs-5">
+                    Comanda #{{ order.id }}
+                  </div>
+
+                  <div class="text-muted small mt-1">
+                    <span class="me-3">
+                      Total:
+                      <strong class="text-dark">
+                        {{ order.total_price }} {{ order.currency }}
+                      </strong>
+                    </span>
+                    <span>{{ order.created_at|date:"d.m.Y H:i" }}</span>
+                  </div>
+                </div>
+
+                <!-- RIGHT STATUS -->
+                <span class="badge rounded-pill px-3 py-2 fs-6
+                  {% if order.status == 'new' %} bg-warning
+                  {% elif order.status == 'processing' %} bg-info
+                  {% elif order.status == 'processed' %} bg-success
+                  {% elif order.status == 'cancelled' %} bg-danger
+                  {% endif %}">
+                  {{ order.get_status_display }}
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    {% endif %}
+  {% empty %}
+    <p class="text-muted text-center">Nu există comenzi.</p>
+  {% endfor %}
+</div>

@@ -1,0 +1,5 @@
+{% load currency_filters %}
+
+<h4 id="product-price" class="fw-bold mb-1">
+  de la {{ variant.calculated_price|price_in:currency }} {{ currency }}
+</h4>

@@ -1,0 +1,14 @@
+<h4>{{ notification.title }}</h4>
+
+<p class="text-muted">
+  De la {{ notification.sender }} ·
+  {{ notification.created_at|date:"d.m.Y H:i" }}
+</p>
+
+<hr>
+
+<p>{{ notification.message }}</p>
+
+<a href="{% url 'customer:inbox' %}" class="btn btn-sm btn-secondary mt-3">
+  Înapoi la inbox
+</a>

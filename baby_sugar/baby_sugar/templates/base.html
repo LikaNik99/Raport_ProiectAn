@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ request.user.profile.theme|default:'light' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <link rel="preload"
+      href="{% static 'vendor/fontawesome/webfonts/fa-solid-900.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/root.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'product/css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{% static 'js/alertify.js' %}"></script>
+    {% if request.user.is_authenticated %}
+        <script src="{% static 'js/inbox_socket.js' %}"></script>
+    {% endif %}
+
+    {% block extra_css %}{% endblock extra_css %}
+</head>
+
+<body>
+<div class="position-relative bg-sugarbabies">
+
+    <div class="position-absolute top-0 start-0 w-100 h-100  bg-overlay"></div>
+
+    <div class="position-relative z-2 d-flex flex-column min-vh-100">
+
+        {% include "header.html" %}
+
+        {% include "mesages.html" %}
+
+        <main class="flex-grow-1 container-fluid">
+
+            <div class="row justify-content-center ">
+
+                <div class="col d-none d-xl-block"></div>
+                <div class="col-12 pb-5">
+                  {% include "breadcrumbs.html" %}
+                  {% block content %}{% endblock content %}</div>
+                <div class="col d-none d-xl-block"></div>
+
+            </div>
+
+        </main>
+
+        {% include "footer.html" %}
+
+    </div>
+    
+</div>
+
+{% block extra_js %}{% endblock extra_js %}
+<script src="{% static 'js/csrftoken.js' %}"></script>
+<script src="{% static 'js/inbox_badge.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+{% comment %} <script src="https://unpkg.com/htmx.org@1.9.12"></script> {% endcomment %}
+
+
+
+
+<div
+  id="notif-consent"
+  class="notif-consent"
+  style="display: none;"
+>
+  <strong>Notificări</strong><br>
+  Vrei sunet la mesaje?
+  <div class="actions">
+    <button class="btn btn-sm btn-success" id="notif-yes">Da</button>
+    <button class="btn btn-sm btn-secondary" id="notif-no">Nu</button>
+  </div>
+</div>
+
+
+</body>
+</html>

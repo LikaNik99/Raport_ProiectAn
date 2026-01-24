@@ -1,0 +1,119 @@
+{% if user.is_authenticated %}
+<div class=" mt-5 container min-vh-100 d-flex align-items-center justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-body p-4 p-md-5">
+
+        <!-- HEADER -->
+        <div class="text-center mb-4">
+
+          {% if profile.profile_picture %}
+            <img
+              src="{{ profile.profile_picture.url }}"
+              class="rounded-circle mb-3"
+              style="width: 110px; height: 110px; object-fit: cover;"
+              alt="Profile picture"
+            >
+          {% else %}
+            <div
+              class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+              style="width:110px;height:110px;font-size:40px;"
+            >
+              {{ user.username|slice:":1"|upper }}
+            </div>
+          {% endif %}
+
+          <h3 class="fw-bold mb-0">{{ user.username }}</h3>
+          <p class="text-muted mb-2">{{ user.email }}</p>
+
+          {% if user.is_subscribed %}
+            <span class="badge bg-success px-3 py-2">Abonat</span>
+          {% else %}
+            <span class="badge bg-secondary px-3 py-2">Neabonat</span>
+          {% endif %}
+        </div>
+
+        <hr>
+
+        <!-- DATE PERSONALE -->
+        <h5 class="fw-bold mb-3">Date personale</h5>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Nume</div>
+          <div class="col-7">{{ user.first_name|default:"—" }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Prenume</div>
+          <div class="col-7">{{ user.last_name|default:"—" }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Telefon</div>
+          <div class="col-7">{{ profile.phone_number|default:"—" }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Adresă</div>
+          <div class="col-7">{{ profile.address|default:"—" }}</div>
+        </div>
+
+        {% if profile.date_of_birth %}
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Data nașterii</div>
+          <div class="col-7">{{ profile.date_of_birth }}</div>
+        </div>
+        {% endif %}
+
+        <hr>
+
+        <!-- SETĂRI -->
+        <h5 class="fw-bold mb-3">Setări cont</h5>
+        
+        <div class="row mb-2">
+          <a href="{% url 'customer:toggle_theme' %}" class="btn btn-outline-secondary">🌙 / ☀️</a>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Monedă preferată</div>
+          <div class="col-7">{{ user.preferred_currency }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 text-muted">Status cont</div>
+          <div class="col-7">
+            {% if user.is_banned %}
+              <span class="badge bg-danger">Blocat</span>
+            {% else %}
+              <span class="badge bg-success">Activ</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- ACTIONS -->
+        <div class="d-grid gap-2">
+          <a
+            href="{% url 'customer:profile_edit' %}"
+            class="btn btn-outline-dark"
+          >
+            Editează profilul
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% else %}
+<div class="container text-center py-5">
+  <h4 class="mb-3">Nu ești autentificat</h4>
+  <a href="{% url 'customer:login' %}" class="btn btn-dark">
+    Login
+  </a>
+</div>
+{% endif %}

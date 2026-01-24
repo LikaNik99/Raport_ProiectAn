@@ -1,0 +1,15 @@
+<form method="post" action="{% url 'customer:toggle_wishlist' product.slug %}" class="d-inline">
+  {% csrf_token %}
+
+  {% if in_wish %}
+    <button type="submit"
+            class="btn btn-outline-danger btn-lg w-100">
+      Șterge
+    </button>
+  {% else %}
+    <button type="submit"
+            class="btn btn-outline-danger btn-lg w-100">
+      ♡ Adaugă
+    </button>
+  {% endif %}
+</form>

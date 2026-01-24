@@ -1,0 +1,21 @@
+{% if messages %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  {% for message in messages %}
+    alertify.set({ delay: 2000 });
+
+    {% if "success" in message.tags %}
+      alertify.success("{{ message|escapejs }}");
+    {% elif "error" in message.tags %}
+      alertify.error("{{ message|escapejs }}");
+    {% elif "warning" in message.tags %}
+      alertify.info("{{ message|escapejs }}");
+    {% elif "info" in message.tags %}
+      alertify.info("{{ message|escapejs }}");
+    {% else %}
+      alertify.alert("{{ message|escapejs }}");
+    {% endif %}
+  {% endfor %}
+});
+</script>
+{% endif %}

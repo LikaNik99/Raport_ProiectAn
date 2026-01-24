@@ -1,0 +1,25 @@
+.breadcrumb {
+  font-size: 0.9rem;
+  --bs-breadcrumb-divider: '/';
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--bs-rust);
+  font-weight: 600;
+}
+
+
+.breadcrumb-item a {
+  color: var(--bs-rust);
+  font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--bs-mahogany);
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--bs-mahogany);
+  font-weight: 700;
+}

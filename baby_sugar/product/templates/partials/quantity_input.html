@@ -1,0 +1,28 @@
+<div class="mb-4" id="quantity-wrapper">
+  <label for="quantity" class="form-label fw-semibold">
+    Cantitate
+  </label>
+
+  <div class="input-group" style="max-width: 180px;">
+    <button class="btn btn-outline-secondary"
+            type="button"
+            onclick="this.nextElementSibling.stepDown()">
+      −
+    </button>
+
+    <input type="number"
+           id="quantity"
+           name="quantity"
+           class="form-control text-center"
+           value="1"
+           min="1"
+           max="{{ max }}"
+           required>
+
+    <button class="btn btn-outline-secondary"
+            type="button"
+            onclick="this.previousElementSibling.stepUp()">
+      +
+    </button>
+  </div>
+</div>

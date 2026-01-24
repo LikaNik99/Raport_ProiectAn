@@ -1,0 +1,63 @@
+<div class="container">
+</section>
+
+    <section class="py-5 text-center">
+  <h1 class="fw-bold">Hăinuțe și accesorii pentru cei mici</h1>
+  <p class="text-muted mt-2">
+    Calitate, grijă și confort pentru bebelușul tău
+  </p>
+  <a href="{% url 'main:catalog' %}" class="btn btn-mahogany mt-3 px-4">
+    Vezi produsele
+  </a>
+</section>
+
+
+
+<section class="hero-section mb-4 container mt-5">
+
+  {% if hero_images %}
+  <div id="homeHero"
+       class="carousel slide carousel-fade"
+       data-bs-ride="carousel"
+       data-bs-interval="4500">
+
+    <div class="carousel-inner">
+
+      {% for img in hero_images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+          <img
+            src="{{ img.image.url }}"
+            class="d-block w-100 hero-img"
+            alt="{{ img.alt_text|default:img.product.name }}"
+          >
+
+          <div class="carousel-caption hero-caption">
+            <h2 class="fw-bold">{{ img.product.name }}</h2>
+
+            <a href="{% url 'product:product_detail' img.product.slug %}"
+               class="btn btn-mahogany"
+               onclick="event.stopPropagation();">
+              Vezi produsul
+            </a>
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#homeHero" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#homeHero" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+  {% endif %}
+
+</div>

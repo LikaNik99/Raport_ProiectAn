@@ -1,0 +1,54 @@
+<h2 class="my-5 text-center fw-bold display-3 text-white">
+  Catalog produse
+</h2>
+
+<div class="container">
+  <div class="row g-4 justify-content-center">
+
+    <!-- TOATE PRODUSELE -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="{% url 'product:all_products' %}"
+         class="text-decoration-none">
+
+        <div class="bg-white product_card h-100 shadow-sm border-0 rounded">
+          <div class="d-flex align-items-center justify-content-center bg-dark bg-opacity-25 rounded"
+               style="height:220px;">
+            <h3 class="fw-bold text-white h2">
+              Toate produsele
+            </h3>
+          </div>
+        </div>
+        
+      </a>
+    </div>
+
+    <!-- CATEGORII -->
+    {% for cat in categories %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="{% url 'main:category_products' cat.slug %}"
+         class="text-decoration-none">
+
+        <div class="card product_card h-100 shadow-sm border-0 category-card overflow-hidden">
+
+          {% if cat.image %}
+            <img src="{{ cat.image.url }}"
+                 class="card-img-top"
+                 alt="{{ cat.name }}"
+                 style="height:220px; object-fit:cover;">
+          {% endif %}
+
+          <!-- OVERLAY -->
+          <div class="card-img-overlay d-flex align-items-end p-3
+                      bg-dark bg-opacity-25">
+            <h4 class="fw-bold text-white m-0 h2">
+              {{ cat.name }}
+            </h4>
+          </div>
+
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>

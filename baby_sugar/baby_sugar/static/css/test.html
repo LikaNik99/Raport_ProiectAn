@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+
+    <header class="container-fluid">
+      <div class="row justify-content-center text-center p-0">
+
+        <!-- header-top -->
+        <div class="col-12 border flex-md-nowrap py-2 d-flex align-items-center">
+          <div class="col-4 text-start fs-5">
+            <a href="tel:" class="d-flex align-items-center text-decoration-none">
+              <i class="fa-solid fa-phone"></i>
+              <span class="d-none d-md-block ms-1">+37376709461</span>
+            </a>
+          </div>
+
+          <div class="col text-center fs-5">
+            <a href="#"><i class="fa-brands fa-instagram mx-1"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook mx-1"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok mx-1"></i></a>
+          </div>
+
+          <div class="col-4 text-end ">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="dropdown me-3">
+                <a class="dropdown-toggle d-none d-md-flex align-items-center text-decoration-none"
+                  href="#" id="currencyDropdown" data-bs-toggle="dropdown">MDL</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">USD</a></li>
+                  <li><a class="dropdown-item" href="#">EUR</a></li>
+                  <li><a class="dropdown-item" href="#">RON</a></li>
+                  <li><a class="dropdown-item" href="#">MDL</a></li>
+                </ul>
+              </div>
+
+              <a href="#" class="d-flex align-items-center text-decoration-none">
+                <i class="fa-solid fa-user fs-5"></i>
+                <span class="d-none d-md-block mx-2">account</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- END header-top -->
+
+
+        <!-- header-body -->
+        <div class="col-12 p-3 bg-light d-flex align-items-center flex-wrap">
+
+          <div class="col-6 col-md-4 d-flex align-items-center">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <img src="/baby_sugar/baby_sugar/static/images/logo.png" class="rounded-pill" style="height:36px;">
+              <span class="ms-2">Little SugarBabies</span>
+            </a>
+          </div>
+
+          <div class="col-6 d-md-none text-end">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#meniulMeu">
+              <i class="fa-solid fa-bars fs-2"></i>
+            </button>
+          </div>
+
+          <div class="col-12 col-md-4 d-none d-md-flex justify-content-center">
+            <div class="search ps-2 pe-1">
+              <input type="text" class="searchTerm" placeholder="search">
+              <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 d-none d-md-block text-end">
+            <a href="#" class="mx-2 text-decoration-none">Acasă</a>
+            <a href="#" class="mx-2 text-decoration-none">Catalog</a>
+            <a href="#" class="mx-2 text-decoration-none">cos</a>
+            <a href="#" class="mx-2 text-decoration-none">Contact</a>
+            <a href="#" class="mx-2 text-decoration-none"><i class="fa-solid fa-right-from-bracket"></i><span class="d-none">iesire</span></a>
+          </div>
+        </div>
+        <!-- END header-body -->
+
+      </div>
+
+      <!-- meniul mobil -->
+      <div class="collapse" id="meniulMeu">
+        <div class="my-3 fs-2 text-center d-flex justify-content-center">
+          <a href="#" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-house"></i></a>
+          <a href="#" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-table-cells-large"></i></a>
+          <a href="#" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-square-phone"></i></a>
+          <a href="#" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-basket-shopping"></i></a>
+          <a href="#" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="search ps-2 pe-1">
+            <input type="text" class="searchTerm" placeholder="search">
+            <button type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <main class="flex-grow-1">
+      <div class="container-fluid" style="max-width: 1450px;">
+        <div class="row justify-content-center">
+            <div class="col-2 d-none d-xl-block">zona pentru publicitate</div>
+
+            <div class="col d-flex flex-wrap justify-content-center p-0" style="max-width: 1120px;">
+
+<!-- Buton pentru test -->
+<button class="btn btn-primary" onclick="loadProductDetail(1)">Deschide produs</button>
+
+<!-- Modal Bootstrap 5 -->
+<div class="modal fade" id="productModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="productTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" id="productBody">
+        <!-- conținutul produsului vine prin AJAX -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+            </div>
+            <div class="col-2 d-none d-xl-block">zona pentru publicitate</div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center p-3 border mt-auto">
+        Footer
+    </footer>
+  
+    <script src="https://kit.fontawesome.com/275b48de4f.js" crossorigin="anonymous"></script>
+    <script src="/baby_sugar/baby_sugar/static/js/bootstrap.bundle.min.js"></script>
+    <script src="js.js"></script>
+
+<script>
+function loadProductDetail(id) {
+    fetch(`/product-detail/${id}/`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("productTitle").innerText = data.name;
+            document.getElementById("productBody").innerHTML = `
+                <img src="${data.image}" class="img-fluid rounded mb-3" />
+                <p>${data.description}</p>
+                <h5 class="text-success fw-bold">${data.price} MDL</h5>
+            `;
+            new bootstrap.Modal(document.getElementById('productModal')).show();
+        });
+}
+</script>
+
+  </body>
+</html>

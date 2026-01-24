@@ -1,0 +1,83 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+
+      <!-- CARD COMANDĂ -->
+      <div class="card shadow-sm border-0 bg-chiffon">
+        <div class="card-body p-4">
+
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="fw-bold text-mahogany mb-0">
+              Comanda #{{ order.id }}
+            </h4>
+
+            <span class="badge rounded-pill px-3 py-2
+              {% if order.status == 'new' %} bg-warning 
+              {% elif order.status == 'processing' %} bg-info
+              {% elif order.status == 'processed' %} bg-success
+              {% elif order.status == 'cancelled' %} bg-danger
+              {% endif %}">
+              {{ order.get_status_display }}
+            </span>
+          </div>
+
+          <!-- META -->
+          <div class="text-muted small mb-4">
+            <i class="fa-regular fa-clock me-1"></i>
+            {{ order.created_at|date:"d.m.Y H:i" }}
+          </div>
+
+          <!-- PRODUSE -->
+          <h6 class="fw-semibold mb-3">Produse</h6>
+
+          <ul class="list-group list-group-flush mb-4">
+  {% for item in order.items.all %}
+    <div class="d-flex justify-content-between align-items-start border-bottom py-2">
+
+      <div>
+        <div class="fw-semibold text-mahogany">
+          {{ item.product_name }}
+        </div>
+
+        <div class="small text-muted">
+          {% if item.color %}Culoare: {{ item.color }} · {% endif %}
+          {% if item.size %}Mărime: {{ item.size }} · {% endif %}
+          {% if item.age %}Vârstă: {{ item.age }}{% endif %}
+        </div>
+
+        <div class="small text-muted">
+          Cod: {{ item.product_code }}
+        </div>
+      </div>
+
+      <div class="text-end">
+        <div class="fw-semibold">
+          {{ item.quantity }} × {{ item.price }} {{ order.currency }}
+        </div>
+
+        <div class="small text-muted">
+          = {{ item.line_total }} {{ order.currency }}
+        </div>
+      </div>
+
+    </div>
+  {% empty %}
+    <p class="text-muted">Nu există produse în comandă.</p>
+  {% endfor %}
+          </ul>
+
+          <!-- TOTAL -->
+          <div class="d-flex justify-content-between align-items-center border-top pt-3">
+            <span class="fw-semibold fs-5">Total</span>
+            <span class="fw-bold fs-5 text-rust">
+              {{ order.total_price }} {{ order.currency }}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

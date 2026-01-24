@@ -1,0 +1,57 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+  <script src="{% static 'js/script.js' %}" defer></script>
+  <script src="{% static 'orders/js/admin_ws.js' %}" defer></script>
+
+{% endblock %}
+
+{% block footer %}
+  {{ block.super }}
+
+
+<dialog id="admin-modal" class="admin-modal">
+  <div class="admin-modal__card">
+    <div class="admin-modal__header">
+      <h5 id="admin-modal-title" class="admin-modal__title">Notificare</h5>
+    </div>
+
+    <div class="admin-modal__body" id="admin-modal-message">
+      <!-- mesaj din JS -->
+    </div>
+
+    <div class="admin-modal__footer">
+      <button id="admin-modal-ok" class="admin-modal__btn">
+        OK
+      </button>
+    </div>
+  </div>
+</dialog>
+
+
+<div
+  id="notif-consent"
+  class="notif-consent"
+  style="display: none;"
+>
+  <strong>Notificări</strong><br>
+  Vrei sunet la mesaje?
+  <div class="actions">
+    <button class="btn btn-sm btn-success" id="notif-yes">Da</button>
+    <button class="btn btn-sm btn-secondary" id="notif-no">Nu</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

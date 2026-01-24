@@ -1,0 +1,147 @@
+{% load currency_filters %}
+
+<section class="container py-4">
+  <div class="row justify-content-center">
+
+    <div class="col-12">
+      <div class="card shadow-sm rounded-3">
+        <div class="card-body p-0">
+
+          <div class="row g-0">
+
+            <!-- LEFT: SHOPPING CART -->
+            <div class="col-lg-8">
+              <div class="p-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="fw-bold mb-0">Coșul tău</h5>
+                  <span class="text-muted small">
+                    {{ cart_items|length }} produse
+                  </span>
+                </div>
+
+                <hr class="my-3">
+
+                {% for item in cart_items %}
+                <div class="row align-items-center py-3 border-bottom">
+
+                  <!-- IMAGE -->
+                  <div class="col-2 col-md-1 text-center">
+                    {% if item.product.image %}
+                      <img
+                        src="{{ item.product.image.url }}"
+                        class="rounded"
+                        style="width:64px;height:64px;object-fit:cover;"
+                        alt="{{ item.product.name }}"
+                      >
+                    {% else %}
+                      <div class="bg-light rounded"
+                          style="width:64px;height:64px;"></div>
+                    {% endif %}
+                  </div>
+
+                  <!-- PRODUCT INFO -->
+                  <div class="col-5 col-md-6">
+                    <div class="fw-semibold">
+                      {{ item.product.name }}
+                    </div>
+
+                    {% if item.variant %}
+                      <div class="text-muted small">
+                        {{ item.variant.color }}
+                        {% if item.variant.size %}
+                          / {{ item.variant.size }}
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  <!-- QTY -->
+                  <div class="col-3 col-md-2">
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+
+                      <a href="{% url 'customer:cart_minus' item.id %}"
+                        class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                        style="width:32px;height:32px;">
+                        −
+                      </a>
+
+                      <span class="fw-semibold">{{ item.quantity }}</span>
+
+                      <a href="{% url 'customer:cart_plus' item.id %}"
+                        class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                        style="width:32px;height:32px;">
+                        +
+                      </a>
+
+                    </div>
+                  </div>
+
+                  <!-- PRICE -->
+                  <div class="col-2 col-md-3 text-end">
+                    <div class="fw-semibold">
+                      {{ item.line_total|price_in:currency }} {{ currency }}
+                    </div>
+
+                    <a href="{% url 'customer:cart_remove' item.id %}"
+                      class="text-danger text-decoration-none fs-5">
+                      ×
+                    </a>
+                  </div>
+
+                </div>
+                {% endfor %}
+
+
+                <div class="pt-3">
+                  <a href="{% url 'main:catalog' %}"
+                     class="text-decoration-none small">
+                    ← Înapoi la magazin
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- RIGHT: SUMMARY -->
+            <div class="col-lg-4 bg-body-tertiary">
+              <div class="p-4 small">
+
+                <h6 class="fw-bold mb-3">Summary</h6>
+                <hr class="my-3">
+
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Produse</span>
+                  <span>{{ cart_items|length }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Subtotal</span>
+                  <span>{{ total|price_in:currency }} {{ currency }}</span>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="d-flex justify-content-between fw-bold fs-6 mb-3">
+                  <span>Total</span>
+                  <span>{{ total|price_in:currency }} {{ currency }}</span>
+                </div>
+
+                <form method="post" action="{% url 'orders:place' %}">
+                  {% csrf_token %}
+                  <button class="btn btn-success btn-sm w-100">
+                    Plasează comanda
+                  </button>
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

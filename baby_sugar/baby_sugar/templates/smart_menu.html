@@ -1,0 +1,28 @@
+  <div class="collapse w-100 shadow-sm position-absolute start-0 top-100 z-3 smart_menu" id="meniulMeu">
+    <div class="my-3 fs-2 text-center d-flex justify-content-center">
+      <a href="{% url 'main:home' %}" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-house"></i></a>
+      <a href="{% url 'main:catalog' %}" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-table-cells-large"></i></a>
+      <a href="{% url 'orders:orders' %}" class="text-decoration-none"><i class="fa-solid fa-receipt"></i></a>
+      <a href="{% url 'customer:wishlist' %}" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-heart"></i></a>
+      <a href="{% url 'customer:inbox' %}" class="position-relative d-inline-flex align-items-center d-block py-1 mx-2 text-decoration-none">          
+            <i class="fa-solid fa-envelope "></i>
+            <span class="inbox-badge"></span>
+        </a>
+      <a href="{% url 'customer:cart' %}" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-basket-shopping"></i></a>
+      <a href="{% url 'customer:logout' %}" class="d-block py-1 mx-2 text-decoration-none"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+    <div class="row justify-content-center mb-3 d-md-none">
+      <div class="search ps-4 pe-2">
+        <form 
+        method="get"
+        action="{% url 'product:product_search' %}"
+        class="d-flex">
+          <input type="text" class="searchTerm" placeholder="search" name="q">
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+

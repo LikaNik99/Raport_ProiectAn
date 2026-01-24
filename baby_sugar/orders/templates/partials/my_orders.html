@@ -1,0 +1,66 @@
+<h2 class="m-4 text-chiffon text-center">Comenzile mele</h2>
+<div class="container d-flex justify-content-center "></div>
+  <ul class="nav nav-tabs mb-4 d-flex justify-content-center" id="ordersTabs" role="tablist">
+
+    <li class="nav-item">
+      <button class="nav-link active text-chiffon"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-new"
+              type="button">
+        Active
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link text-chiffon"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-processing"
+              type="button">
+        În procesare
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link text-chiffon"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-processed"
+              type="button">
+        Procesate
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link text-chiffon"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-cancelled"
+              type="button">
+        Anulate
+      </button>
+    </li>
+
+  </ul>
+
+  <!-- ================= TAB CONTENT ================= -->
+  <div class="tab-content">
+
+    <!-- ACTIVE -->
+    <div class="tab-pane fade show active" id="tab-new">
+      {% include "partials/order_list.html" with orders=orders status="new" %}
+    </div>
+
+    <!-- PROCESSING -->
+    <div class="tab-pane fade" id="tab-processing">
+      {% include "partials/order_list.html" with orders=orders status="processing" %}
+    </div>
+
+    <!-- PROCESSED -->
+    <div class="tab-pane fade" id="tab-processed">
+      {% include "partials/order_list.html" with orders=orders status="processed" %}
+    </div>
+
+    <!-- CANCELLED -->
+    <div class="tab-pane fade" id="tab-cancelled">
+      {% include "partials/order_list.html" with orders=orders status="cancelled" %}
+    </div>
+
+  </div>

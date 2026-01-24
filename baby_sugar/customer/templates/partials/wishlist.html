@@ -1,0 +1,46 @@
+<div class="row g-4 justify-content-center mt-3">
+
+{% if products %}
+  {% for product in products %}
+    {% with product.images.first as img %}
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+        {% if img %}
+          <a href="{% url 'product:product_detail' product.slug %}"
+             class="card text-decoration-none product_card">
+
+            <!-- WRAPPER OBLIGATORIU -->
+            <div class="overflow-hidden rounded ratio ratio-1x1 ">
+
+              <!-- IMAGINE -->
+              <img src="{{ img.image.url }}"
+                   alt="{{ product.name }}"
+                   class="img-fluid w-100 d-block">
+
+              <!-- TEXT PESTE IMAGINE -->
+              <div class="bg-opacity-25 bg-dark text-white fw-semibold px-2 py-2 d-flex align-items-end fs-5 fw-bold border-0"
+                   style="background: linear-gradient(transparent, rgba(239,170,82, 0.2));"> 
+                <p>{{ product.name }}</p>
+              </div>
+
+            </div>
+
+          </a>
+        {% else %}
+          <div class="text-center text-muted">
+            {{ product.name }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    {% endwith %}
+  {% endfor %}
+{% else %}
+  <div class="text-center text-muted py-5">
+    <h5>Nu există produse 🤍</h5>
+  </div>
+{% endif %}
+
+</div>

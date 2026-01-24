@@ -1,0 +1,36 @@
+:root {
+  --overlay-light: rgba(108, 117, 125, 0.6);
+  --overlay-dark: rgba(0, 0, 0, 0.55);
+}
+
+.bg-sugarbabies{
+  position: relative;
+  min-height: 100vh;
+  background-image: url("/static/images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg-overlay{
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-light);
+  z-index: 0;
+}
+html[data-theme="dark"] .bg-overlay {
+  background: var(--overlay-dark);
+}
+
+/* .layout > *:not(.bg-overlay){
+  position: relative;
+  z-index: 1;
+} */
+
+.z-3 {
+  z-index: 1030;
+}
+/* .smart-menu{
+  z-index: 2000;
+} */

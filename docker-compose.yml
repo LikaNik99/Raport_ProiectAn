@@ -1,0 +1,58 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: baby_sugar_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  web:
+    build: .
+    container_name: baby_sugar_web
+    command: >
+      sh -c "
+      until nc -z db 3306; do
+        echo 'Waiting for MySQL...';
+        sleep 2;
+      done &&
+      python manage.py migrate &&
+      daphne -b 0.0.0.0 -p 8000 baby_sugar.asgi:application
+      "
+    volumes:
+      - .:/app
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:alpine
+    container_name: baby_sugar_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./baby_sugar/staticfiles:/app/staticfiles:ro
+      - ./baby_sugar/media:/app/media:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - web
+
+
+
+volumes:
+  mysql_data:

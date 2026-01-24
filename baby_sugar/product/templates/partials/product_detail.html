@@ -1,0 +1,101 @@
+<div class="container my-5 bg-white bg-opacity-25">
+  <div class="row g-4 pb-4">
+
+    <!-- IMAGINE PRODUS -->
+    <div class="col-md-5 text-center d-flex align-items-center flex-column">
+      {% if product.main_image %}
+        <img src="{{ product.main_image }}"
+             alt="{{ product.name }}"
+             class="img-fluid rounded mb-2"
+             style="max-height: 350px; object-fit: contain;">
+          {% endif %}
+          {% include "partials/_wishlist_btn.html" with product=product in_wish=in_wish %}
+    </div>
+    
+
+    <!-- INFO PRODUS -->
+    <div class="col-md-7">
+
+      <h1 class="mb-3">{{ product.name }}</h1>
+
+      <p class="text-muted">
+        {{ product.description }}
+      </p>
+
+      <div class="mb-3">
+        {% load currency_filters %}
+            <h4 id="product-price" class="fw-bold mb-1">
+              de la
+              {% if product.reduced_price %}
+                {{ product.reduced_price|price_in:currency }} {{ currency }}
+              {% else %}
+                {{ product.price|price_in:currency }} {{ currency }}
+              {% endif %}
+            </h4>
+        <div class="text-secondary">
+          Stoc total: {{ product.stock }}
+        </div>
+      </div>
+
+      <hr>
+
+      <form method="POST"
+            action="{% url 'customer:add_to_cart' product.id %}">
+        {% csrf_token %}
+
+        <!-- VARIANTE -->
+        {% if variants %}
+          <h5 class="mb-3">Alege varianta</h5>
+
+          <div class="list-group mb-4">
+            {% for variant in variants %}
+              <label class="list-group-item d-flex align-items-center gap-3
+                            {% if variant.stock == 0 %}opacity-50{% endif %}">
+
+                    <input class="form-check-input mt-0"
+                          type="radio"
+                          name="variant_id"
+                          value="{{ variant.id }}"
+                          required
+                          {% if variant.stock == 0 %}disabled{% endif %}>
+                    
+
+                <div class="flex-grow-1">
+                  <div class="fw-semibold">
+                    {{ variant.color }}{% if variant.size %}  / {{ variant.size }} cm {% endif %}
+                  </div>
+                      <small class="text-muted">
+                        {{ variant.calculated_price|price_in:currency }} {{ currency }}
+                        · Stoc {{ variant.stock }}
+                      </small>
+
+                </div>
+
+              </label>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+
+        <!-- CANTITATE -->
+              <div id="quantity-wrapper">
+          {% include "partials/quantity_input.html" with max=product.stock %}
+        </div>
+
+        <!-- BUTON ADAUGARE -->
+        {% if product.stock > 0 %}
+            <button type="submit"
+                    class="btn btn-outline-danger btn-lg w-100">
+              Adaugă în coș
+            </button>
+        {% else %}
+          <button class="btn btn-secondary btn-lg w-100" disabled>
+            Stoc epuizat
+          </button>
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+</div>
