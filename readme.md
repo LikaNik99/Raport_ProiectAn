@@ -4,7 +4,7 @@ Acest repository conține lucrările studenților organizați pe branch-uri sepa
 
 Pentru a vizualiza lucrările unui anumit student, trebuie să comuți branch-ul corespunzător.
 
-3. Comută pe branch-ul studentului dorit
+1. Comută pe branch-ul studentului dorit
 bash
 git checkout [nume-student]
 Exemple:
@@ -13,7 +13,7 @@ bash
 git checkout josu_ion     # Lucrările lui Josu Ion
 git checkout cocieru_emil  # Lucrările lui Cocieru Emil
 
-4. Întoarce-te pe main
+2. Întoarce-te pe main
 bash
 git checkout main
 Comenzi utile
