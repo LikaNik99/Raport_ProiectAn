@@ -1,0 +1,290 @@
+﻿/* --- 0. Global Reset and Base Styles --- */
+:root {
+    --primary-color: #44296e; /* Deep Violet/Purple (from original nav) */
+    --secondary-color: #f7b731; /* Accent/Highlight Color (e.g., for buttons) */
+    --background-light: #f4f7f6; /* Light gray background */
+    --text-dark: #333;
+    --border-color: #ddd;
+    --table-header-bg: #e9ecef;
+    --modal-bg: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- 1. Layout Structure (Grid) --- */
+#admin-dashboard-layout {
+    display: grid;
+    /* Defines 1 column for the sidebar (fixed 250px) and 1 column for the main content */
+    grid-template-columns: 250px 1fr;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+/* --- 2. Sidebar Navigation --- */
+#sidebar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 0 20px 30px;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    flex-grow: 1; /* Allows links to take up available space */
+}
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 20px;
+        color: #e0e0e0;
+        text-decoration: none;
+        transition: background-color 0.2s, color 0.2s;
+        font-size: 0.95em;
+    }
+
+        .nav-links li a i {
+            margin-right: 10px;
+            width: 20px; /* Aligns icons vertically */
+        }
+
+        .nav-links li a:hover:not(.active) {
+            background-color: #5a3c86; /* Darker hover effect */
+            color: white;
+        }
+
+        .nav-links li a.active {
+            background-color: var(--secondary-color); /* Accent background */
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+/* --- 3. Main Content Area --- */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allows scrolling if content exceeds height */
+}
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.WelcomeToPanel {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- 4. Content Views and Tables --- */
+#content-view {
+    padding: 20px 30px;
+}
+
+.data-view {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+    .data-view.hidden {
+        display: none;
+    }
+
+    .data-view h2 {
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        font-weight: 400;
+    }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .data-table th, .data-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-table th {
+        background-color: var(--table-header-bg);
+        color: var(--text-dark);
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .data-table tbody tr:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+/* --- 5. Buttons and Forms --- */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    text-decoration: none; /* For link buttons */
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #5a3c86;
+    }
+
+.btn-secondary {
+    background-color: #aaa;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background-color: #888;
+    }
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+}
+
+    .btn-success:hover {
+        background-color: #1e7e34;
+    }
+
+/* --- 6. Centralized Modal --- */
+.modal-behind {
+    /* Initially Hidden */
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Ensure it's above everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg);
+    overflow: auto;
+    padding-top: 50px;
+}
+
+.modal-container {
+    background-color: white;
+    margin: 5% auto; /* Center the modal vertically and horizontally */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    animation: fadeIn 0.3s;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.close-modal-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+    .close-modal-btn:hover {
+        color: var(--text-dark);
+    }
+
+.modal-body {
+    padding: 20px;
+}
+
+/* --- Form Fields inside Modal Body --- */
+.bodySelection, .data-group, .data-group1 {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    align-items: center;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+textarea {
+    min-height: 100px;
+    grid-column: 1 / span 2; /* Full width for textarea */
+}
+
+.button-group {
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+}
+
+/* Animation for Modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

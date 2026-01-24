@@ -1,0 +1,138 @@
+﻿:root {
+    /* Raspberry #8A307F, Blues #79A7D3 #6883BC */
+    --bg-color: #6883BC;
+    --second-bg-color: #79A7D3;
+    --text-color: #fff;
+    --main-color: #8A307F;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--second-bg-color);
+    border-radius: 25px;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+}
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+/* button {
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+} */
+
+    /* Add a hover effect for buttons */
+    /* button:hover {
+        opacity: 0.8;
+    } */
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    font-weight: bold;
+    padding: 10px 18px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    border: none;
+}
+
+.cancelbtn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.logincenter {
+    margin-top: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.logincenter button {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--text-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+    border: none;
+}
+
+.logincenter button:hover {
+    /* box-shadow: none; */
+    box-shadow: none;
+    cursor: pointer;
+    /* transform: translateX(15px); */
+}
+/* Center the avatar image inside this container */
+.imgcontainer {
+    background-color: var(--second-bg-color);
+    border-radius: 0;
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    background-color: var(--second-bg-color);
+    width: 100px;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    justify-content: space-between;
+}
+/* #Forgot-password {
+    transition: 0.1s ease;
+} */
+#Forgot-password:hover {
+    opacity: 0.5;
+}
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.dth {
+    align-content: center;
+    float: none;
+    text-decoration: none;
+    color: blue;
+}
