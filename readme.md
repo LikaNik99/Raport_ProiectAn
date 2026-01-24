@@ -15,7 +15,9 @@ Pentru a vizualiza lucrările unui anumit student, trebuie să comuți pe branch
    ```bash
    git checkout [nume-student]
 
-git checkout josu_ion      # Lucrările lui Josu Ion
-git checkout cocieru_emil  # Lucrările lui Cocieru Emil
+   git checkout josu_ion      # Lucrările lui Josu Ion
+   git checkout cocieru_emil  # Lucrările lui Cocieru Emil
 
-git checkout main
+Pentru a reveni in branchiul principal apelam
+   ```bash
+   git checkout main
