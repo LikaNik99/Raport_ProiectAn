@@ -1,0 +1,305 @@
+[
+  {
+    "name": "nicolae",
+    "email": "test@example",
+    "password": "1234",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "Test",
+    "email": "lcinwftvswvnxiokzt@enotj.com",
+    "password": "1234",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "Test",
+    "email": "@gmail",
+    "password": "1234",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "nicolae",
+    "email": "kolia@gmail",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "nicolae",
+    "email": "test@",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "Gheorghe",
+    "email": "Gheorghe@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "emil cocieru",
+    "email": "cocieru@",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "colea",
+    "email": "kolia8582@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "notifications": [
+      {
+        "id": "1762004373560",
+        "type": "rating",
+        "taskId": "mhgbvtahb102qeow3zp",
+        "taskTitle": "dfbdfxf",
+        "stars": 4,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-01T13:39:33.560Z",
+        "read": true
+      },
+      {
+        "id": "1762067979537",
+        "type": "rating",
+        "taskId": "mhhdqsqibulah469ai",
+        "taskTitle": "ffd",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T07:19:39.537Z",
+        "read": true
+      },
+      {
+        "id": "1762068492905",
+        "type": "rating",
+        "taskId": "mhhe25qxmpnp4yintpb",
+        "taskTitle": "dfgdfg",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T07:28:12.906Z",
+        "read": true
+      },
+      {
+        "id": "1762068941390",
+        "type": "rating",
+        "taskId": "mhhec6jpz8hvfl5h32",
+        "taskTitle": "cbcb",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T07:35:41.390Z",
+        "read": true
+      },
+      {
+        "id": "1762076892039",
+        "type": "rating",
+        "taskId": "mhhj2dgmagy1t5qw8wn",
+        "taskTitle": "xvxv",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T09:48:12.039Z",
+        "read": true
+      },
+      {
+        "id": "1762077760410",
+        "type": "rating",
+        "taskId": "mhhjl0m7oko0eehp0tq",
+        "taskTitle": "cb",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T10:02:40.410Z",
+        "read": true
+      },
+      {
+        "id": "1762082513110",
+        "type": "rating",
+        "taskId": "mhhmetkv9ai80ee8qjr",
+        "taskTitle": "fbcfh",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T11:21:53.110Z",
+        "read": true
+      },
+      {
+        "id": "1762088810793",
+        "type": "rating",
+        "taskId": "mhhprwedjfdrd907h7",
+        "taskTitle": "vdgd",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T13:06:50.793Z",
+        "read": true
+      },
+      {
+        "id": "1762090222642",
+        "type": "rating",
+        "taskId": "mhhqnutua93vbxal4e9",
+        "taskTitle": "cxcb",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T13:30:22.643Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "name": "nicoleta",
+    "email": "nicoleta@",
+    "password": "1234",
+    "role": "user",
+    "notifications": [
+      {
+        "id": "1762068496951",
+        "type": "rating",
+        "taskId": "mhhe23teqqn3eghqgfp",
+        "taskTitle": "fdfgdg",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T07:28:16.951Z",
+        "read": true
+      },
+      {
+        "id": "1762068937380",
+        "type": "rating",
+        "taskId": "mhhec526tmua86za3k",
+        "taskTitle": "xcbxcb",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T07:35:37.380Z",
+        "read": true
+      },
+      {
+        "id": "1762082516653",
+        "type": "rating",
+        "taskId": "mhhmerhbfgifu22mj7w",
+        "taskTitle": "ffg",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T11:21:56.653Z",
+        "read": true
+      },
+      {
+        "id": "1762089443466",
+        "type": "rating",
+        "taskId": "mhhq6w39cdhs7rv4zo7",
+        "taskTitle": "hah",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T13:17:23.467Z",
+        "read": true
+      },
+      {
+        "id": "1762091108116",
+        "type": "rating",
+        "taskId": "mhhqzjlyql5t1w3a6ie",
+        "taskTitle": "cxcbx",
+        "stars": 5,
+        "comment": "",
+        "ratedBy": "admin@admin.com",
+        "ratedByName": "admin",
+        "ratedByRole": "admin",
+        "createdAt": "2025-11-02T13:45:08.116Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "name": "Mihai",
+    "email": "mihai@",
+    "password": "123",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "ion",
+    "email": "ion@",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "Ghena",
+    "email": "tikicij784@inilas.com",
+    "password": "Test123",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "max",
+    "email": "max@",
+    "password": "1234",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "admin",
+    "email": "admin@admin.com",
+    "password": "admin123",
+    "role": "admin",
+    "notifications": []
+  },
+  {
+    "name": "sofi",
+    "email": "sofi@",
+    "password": "123",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "vasile",
+    "email": "vasile@gmail.com",
+    "password": "vasile",
+    "role": "user",
+    "notifications": []
+  },
+  {
+    "name": "Nicolae",
+    "email": "cocier@",
+    "password": "12345",
+    "role": "user",
+    "notifications": []
+  }
+]

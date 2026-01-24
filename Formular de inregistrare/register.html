@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login & Register</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="/formular/images/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="/formular/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/formular/css/main.css">
+
+  <style>
+    .wrap-input100 { position: relative; }
+    .wrap-input100 .exclamation {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      color: #e74c3c; font-weight: 700; font-size: 18px; display: none; pointer-events: none;
+    }
+    .wrap-input100.error .exclamation { display: inline-block; }
+    .wrap-input100.error .input100 { border-color: #e74c3c !important; box-shadow: 0 0 6px rgba(231,76,60,0.25); }
+    @keyframes shake { 0%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)} }
+    .wrap-input100.shake { animation: shake 0.25s; }
+  </style>
+</head>
+<body>
+
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="/formular/images/img-01.png" alt="IMG">
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="login100-form validate-form">
+          <span class="login100-form-title">Member Login</span>
+
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="email" placeholder="Email" autocomplete="username">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-envelope"></i></span>
+            <span class="exclamation">❗</span>
+          </div>
+
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="password" name="pass" placeholder="Password" autocomplete="current-password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-lock"></i></span>
+            <span class="exclamation">❗</span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">Login</button>
+          </div>
+
+          <div class="text-center p-t-12">
+            <span class="txt1">Forgot</span>
+            <a class="txt2" href="#">Username / Password?</a>
+          </div>
+
+          <div class="text-center p-t-136">
+            <a class="txt2" href="#" id="showRegister">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5"></i>
+            </a>
+          </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" class="login100-form validate-form" style="display:none;">
+          <span class="login100-form-title">Register</span>
+
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="name" placeholder="Full Name" autocomplete="name">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-user"></i></span>
+            <span class="exclamation">❗</span>
+          </div>
+
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="email" placeholder="Email" autocomplete="email">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-envelope"></i></span>
+            <span class="exclamation">❗</span>
+          </div>
+
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="password" name="pass" placeholder="Password" autocomplete="new-password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-lock"></i></span>
+            <span class="exclamation">❗</span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">Register</button>
+          </div>
+
+          <div class="text-center p-t-136">
+            <a class="txt2" href="#" id="showLogin">
+              Already have an account? Login
+              <i class="fa fa-long-arrow-left m-l-5"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/formular/js/jquery-3.2.1.min.js"></script>
+  <script src="/formular/js/tilt.jquery.min.js"></script>
+  <script>
+    $('.js-tilt').tilt({ scale: 1.1 });
+
+    $("#showRegister").click(e => { e.preventDefault(); $("#loginForm").hide(); $("#registerForm").show(); });
+    $("#showLogin").click(e => { e.preventDefault(); $("#registerForm").hide(); $("#loginForm").show(); });
+
+    function validateAndMark($form) {
+      let ok = true;
+      $form.find(".wrap-input100").each(function(){
+        const $wrap = $(this), $input = $wrap.find(".input100");
+        if(!$input.val().trim()) {
+          ok = false; $wrap.addClass("error shake");
+          setTimeout(()=> $wrap.removeClass("shake"), 300);
+        } else { $wrap.removeClass("error"); }
+      });
+      return ok;
+    }
+
+    $(document).on("input", ".input100", function(){
+      const $wrap = $(this).closest(".wrap-input100");
+      if($(this).val().trim()) $wrap.addClass("has-val").removeClass("error");
+      else $wrap.removeClass("has-val");
+    });
+
+    // REGISTER
+    $("#registerForm").submit(async function(e){
+      e.preventDefault();
+      const $form = $(this);
+      if(!validateAndMark($form)) return;
+      const name = $form.find("input[name='name']").val().trim();
+      const email = $form.find("input[name='email']").val().trim();
+      const pass = $form.find("input[name='pass']").val();
+      try {
+        const res = await fetch("/register", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password: pass })
+        });
+        const data = await res.json();
+        if(res.ok && data.success !== false) {
+          alert("Înregistrare reușită!");
+          $form[0].reset();
+          $form.find(".wrap-input100").removeClass("has-val");
+          $("#registerForm").hide(); $("#loginForm").show();
+        } else alert(data.message || "Eroare la înregistrare");
+      } catch(err) { alert("Eroare de rețea"); }
+    });
+
+    // LOGIN
+    $("#loginForm").submit(async function(e){
+      e.preventDefault();
+      const $form = $(this);
+      if(!validateAndMark($form)) return;
+      const email = $form.find("input[name='email']").val().trim();
+      const pass = $form.find("input[name='pass']").val();
+      try {
+        const res = await fetch("/login", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password: pass })
+        });
+        const data = await res.json();
+
+        if(res.ok && data.success) {
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("role", data.role || "user"); // stocăm rolul pentru UI
+          window.location.href = data.redirect; // sesiunea e în cookie
+        } else {
+          alert(data.message || "Email sau parolă greșită!");
+        }
+      } catch(err) {
+        alert("Eroare de rețea");
+      }
+    });
+  </script>
+</body>
+</html>
