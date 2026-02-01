@@ -1,0 +1,33 @@
+D:\files\New folder\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.deps.json
+D:\files\New folder\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.dll
+D:\files\New folder\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.pdb
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfoInputs.cache
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfo.cs
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.csproj.CoreCompileInputs.cache
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.dll
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\refint\Core.DBModel.dll
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.pdb
+D:\files\New folder\Pay.Net\Core.DBModel\obj\Debug\net7.0\ref\Core.DBModel.dll
+C:\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.deps.json
+C:\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.dll
+C:\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.pdb
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfoInputs.cache
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfo.cs
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.csproj.CoreCompileInputs.cache
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.dll
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\refint\Core.DBModel.dll
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.pdb
+C:\Pay.Net\Core.DBModel\obj\Debug\net7.0\ref\Core.DBModel.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.deps.json
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\bin\Debug\net7.0\Core.DBModel.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfoInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.AssemblyInfo.cs
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.csproj.CoreCompileInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\refint\Core.DBModel.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\Core.DBModel.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.DBModel\obj\Debug\net7.0\ref\Core.DBModel.dll

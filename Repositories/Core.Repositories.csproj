@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.DBModel\Core.DBModel.csproj" />
+    <ProjectReference Include="..\Core.DBUtils\Core.DBUtils.csproj" />
+    <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
+    <ProjectReference Include="..\Core.Utils\Core.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

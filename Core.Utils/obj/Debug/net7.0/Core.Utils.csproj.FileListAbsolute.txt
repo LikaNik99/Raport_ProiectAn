@@ -1,0 +1,36 @@
+D:\files\New folder\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.deps.json
+D:\files\New folder\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.dll
+D:\files\New folder\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.pdb
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.AssemblyReference.cache
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.GeneratedMSBuildEditorConfig.editorconfig
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfoInputs.cache
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfo.cs
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.CoreCompileInputs.cache
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.dll
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\refint\Core.Utils.dll
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.pdb
+D:\files\New folder\Pay.Net\Core.Utils\obj\Debug\net7.0\ref\Core.Utils.dll
+C:\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.deps.json
+C:\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.dll
+C:\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.pdb
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.AssemblyReference.cache
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfoInputs.cache
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfo.cs
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.CoreCompileInputs.cache
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.dll
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\refint\Core.Utils.dll
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.pdb
+C:\Pay.Net\Core.Utils\obj\Debug\net7.0\ref\Core.Utils.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.deps.json
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\bin\Debug\net7.0\Core.Utils.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.AssemblyReference.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfoInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.AssemblyInfo.cs
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.csproj.CoreCompileInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\refint\Core.Utils.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\Core.Utils.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.Utils\obj\Debug\net7.0\ref\Core.Utils.dll

@@ -1,0 +1,51 @@
+﻿@model LoginViewModel
+
+@{
+}
+
+
+
+<section class="vh-100" style="background-color: #efefef;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <h3 class="mb-5">Sign in</h3>
+                    <form role="form" asp-action="Login" asp-controller="Acount" method="post">
+                        <div class="form-outline mb-4">
+                                <input type="name" name="Name" asp-for="Name" autocomplete="off" class="form-control form-control-lg" placeholder="Introduceti Email-ul">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" name="Password" asp-for="Password" autocomplete="off" class="form-control form-control-lg" placeholder="Introduceti Parola">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-start mb-4">
+                            <input type="checkbox" asp-for="RememberMe" />
+                            <label class="form-check-label ps-2" for="RememberMe">Remember password </label>
+                        </div>
+
+                        @if (TempData["Message"] != null)
+                        {
+                            var alertType = TempData["AlertType"]?.ToString() ?? "info";
+                            <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+                                <strong>@TempData["Message"]</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block px-5">
+                        <hr class="my-4">
+                        <a class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;" asp-controller="Acount" asp-action="Registration">Sign Up</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

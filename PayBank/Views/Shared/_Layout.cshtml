@@ -1,0 +1,174 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PayBank</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PayBank.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+</head>
+<body>
+    @{
+        var userName = HttpContextAccessor?.HttpContext?.User?.Identity?.Name;
+        var userId = int.Parse(HttpContextAccessor?.HttpContext?.User?.Claims?.FirstOrDefault(c => c.Type == "UserId")?.Value ?? "0");
+    }
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand text-success logo h1 align-self-center" asp-controller="Home" asp-action="Index">PayBank</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="templatemo_main_nav">
+                    <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                            <li class="nav-item"><a class="nav-link a_link" asp-controller="Home" asp-action="Index">Acasă</a></li>
+                            <li class="nav-item"><a class="nav-link a_link" asp-controller="Home" asp-action="Services">Despre noi</a></li>
+                            <li class="nav-item"><a class="nav-link a_link" asp-controller="Home" asp-action="Services">Servicii</a></li>
+                            <li class="nav-item"><a class="nav-link a_link" asp-controller="Home" asp-action="Services">Contacte</a></li>
+                            @if (User.IsInRole("User"))
+                            {
+                                <li class="nav-item"><a class="nav-link a_link" asp-controller="TopUp" asp-action="TopUp">Alimentează</a></li>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item"><a class="nav-link a_link" asp-controller="Home" asp-action="AdminPanel">AdminPanel</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <ul class="navbar-nav">
+                            @if (!string.IsNullOrEmpty(userName))
+                            {
+                                <li class="nav-item"><a class="nav-link text-dark" href="#">@userName</a></li>
+                                if (userId > 0)
+                                {
+                                    <li class="nav-item d-flex align-items-center ms-3">
+                                        <div class="d-flex align-items-center px-2" style="font-size: 0.9rem;">
+                                            <i class="fa fa-wallet me-2 text-dark"></i>
+                                            <span>@await Core.Repositories.BalanceRepository.GetBalanceFormatted(userId) MDL</span>
+                                        </div>
+                                    </li>
+                                }
+                                
+
+                                <li class="nav-item"><a class="btn btn-success fw-bolder px-4" asp-controller="Acount" asp-action="Logout">Logout</a></li>
+                            }
+                            else
+                            {
+                                <li class="nav-item pe-3"><a class="btn btn-success fw-bolder px-4" asp-controller="Acount" asp-action="Login">Login</a></li>
+                                <li class="nav-item"><a class="btn btn-danger fw-bolder px-4" asp-controller="Acount" asp-action="Registration">Register</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <div>
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">PayBank</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Decebal 1
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:069090909">+373-69-09-09-09</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:PayBank@gmail.com">paybank@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Servicii</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Telefonie Mobilea</a></li>
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Internet + TV</a></li>
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Turism</a></li>
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Servicii Comunale</a></li>
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Turism</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Acasa</a></li>
+                        <li><a class="text-decoration-none" href="#">Despre noi</a></li>
+                        <li><a class="text-decoration-none" asp-controller="Home" asp-action="Services">Servicii</a></li>
+                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2025 PayBank
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

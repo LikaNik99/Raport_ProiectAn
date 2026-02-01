@@ -1,0 +1,100 @@
+﻿@using Core.DBModel
+@model IEnumerable<EnityOperation>
+@{
+
+}
+
+<div class="container py-4">
+    @* @if (TempData["Message"] != null)
+    {
+        var alertType = TempData["AlertType"]?.ToString() ?? "info";
+        <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+            <strong>@TempData["Message"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    } *@
+@*     <div class="row">
+        <div class="col-md-6">
+            <form method="post" asp-action="Index" class="d-flex">
+                <input name="Search" class="form-control me-1" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div> *@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RegDate</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>UserName</th>
+                <th>ServiceName</th>
+                <th>ProviderId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var operation in Model)
+            {
+                <tr>
+                    <td class="align-content-center">@operation.Id</td>
+                    <td class="align-content-center">@operation.RegDate.ToString("dd.MM.yy  HH:mm:ss")</td>
+                    <td class="align-content-center">
+                        @( (operation.Amount / 100.0m).ToString("0.00") ) MDL
+                    </td>
+                    <td class="align-content-center">
+                        @(operation.Status == 0 ? "Created" : operation.Status == 1 ? "Confirmed" : operation.Status == 2 ? "Canceled" : "Unknown")
+                    </td>
+                    <td class="align-content-center">@operation.UserName</td>
+                    <td class="align-content-center">@operation.ServiceName</td>
+                    <td class="align-content-center">@operation.ProviderId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/operationHub")
+        .build();
+
+    connection.start().catch(err => console.error(err.toString()));
+
+    connection.on("NewOperation", function (operation) {
+
+        // 🔹 Transformă regDate într-un format dd.MM.yy HH:mm:ss
+        const regDate = new Date(operation.regDate);
+        const day = regDate.getDate().toString().padStart(2, '0');
+        const month = (regDate.getMonth() + 1).toString().padStart(2, '0'); // lunile sunt 0-indexate
+        const year = regDate.getFullYear().toString().slice(-2); // ultimele două cifre
+        const hours = regDate.getHours().toString().padStart(2, '0');
+        const minutes = regDate.getMinutes().toString().padStart(2, '0');
+        const seconds = regDate.getSeconds().toString().padStart(2, '0');
+
+        const formattedDate = `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
+
+        let statusText =
+            operation.status === 0 ? "Created" :
+            operation.status === 1 ? "Confirmed" :
+            operation.status === 2 ? "Canceled" : "Unknown";
+
+        const amount = (operation.amount / 100).toFixed(2);
+
+        const row = `
+            <tr>
+                <td>${operation.id}</td>
+                <td>${formattedDate}</td>
+                <td>${amount} MDL</td>
+                <td>${statusText}</td>
+                <td>${operation.userName}</td>
+                <td>${operation.serviceName}</td>
+                <td>${operation.providerId}</td>
+            </tr>
+        `;
+
+        $("table tbody").prepend(row);
+    });
+</script>

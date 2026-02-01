@@ -1,0 +1,33 @@
+D:\files\New folder\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.deps.json
+D:\files\New folder\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.dll
+D:\files\New folder\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.pdb
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfoInputs.cache
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfo.cs
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.csproj.CoreCompileInputs.cache
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.dll
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\refint\Core.Model.dll
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.pdb
+D:\files\New folder\Pay.Net\Core.Model\obj\Debug\net7.0\ref\Core.Model.dll
+C:\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.deps.json
+C:\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.dll
+C:\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.pdb
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfoInputs.cache
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfo.cs
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.csproj.CoreCompileInputs.cache
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.dll
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\refint\Core.Model.dll
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.pdb
+C:\Pay.Net\Core.Model\obj\Debug\net7.0\ref\Core.Model.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.deps.json
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\bin\Debug\net7.0\Core.Model.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfoInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.AssemblyInfo.cs
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.csproj.CoreCompileInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\refint\Core.Model.dll
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\Core.Model.pdb
+C:\Users\BRX\Downloads\Pay.Net\Core.Model\obj\Debug\net7.0\ref\Core.Model.dll

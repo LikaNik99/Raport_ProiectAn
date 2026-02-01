@@ -1,0 +1,150 @@
+﻿@model IEnumerable<CategoryServiceViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="h2">Categorii</h1>
+                <div id="toggle-categories" class="up-down">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </div>
+            </div>
+            <ul id="categories-list" class="list-unstyled" style="display: none;">
+                @foreach (var category in Model)
+                {
+                    <li class="pb-2">
+                        <input type="checkbox" class="category-filter" value="@category.CategoryId" id="category-@category.CategoryId" />
+                        <label for="category-@category.CategoryId">@category.CategoryName</label>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="list-inline pb-3 pt-1 h2">
+                        Toate Serviciile
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="post" asp-action="Services" class="d-flex">
+                                    <input name="Search" class="form-control me-1" type="search" placeholder="Search" aria-label="Search" />
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach (var category in Model)
+                    {
+                        <div class="category-group mb-4" data-category-id="@category.CategoryId">
+                            <div class="d-flex justify-content-between align-items-center p-2 border border-success rounded ">
+                                <h2>@category.CategoryName</h2>
+                                <button class="toggle-services btn btn-success btn-sm" data-category-id="@category.CategoryId">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="list-group services-list" data-category-id="@category.CategoryId" style="display: @TempData["display"];">
+                                @foreach (var service in category.Services)
+                                {
+                                    <div class="list-group-item list-group-item-custom d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            @if (!string.IsNullOrEmpty(service.ImageFileName))
+                                            {
+                                                <img src="~/SImg/@service.ImageFileName" alt="Service Image" class="img-thumbnail me-3" style="width: 100px; height: 100px; object-fit: cover;" />
+                                            }
+                                            <div>
+                                                <h5 class="mb-1">@service.Name</h5>
+                                            </div>
+                                        </div>
+                                        @if (User.IsInRole("User"))
+                                        {
+                                            <a asp-controller="Home"
+                                               asp-action="Pay"
+                                               asp-route-id="@service.Id"
+                                               class="btn btn-success">
+                                                Achita serviciul
+                                            </a>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkboxes = document.querySelectorAll('.category-filter');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    filterCategories();
+                });
+            });
+
+            function filterCategories() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const categoryGroups = document.querySelectorAll('.category-group');
+                categoryGroups.forEach(group => {
+                    const categoryId = group.getAttribute('data-category-id');
+                    if (selectedCategories.length === 0 || selectedCategories.includes(categoryId)) {
+                        group.style.display = 'block';
+                        // Open the category if it is selected
+                        if (selectedCategories.includes(categoryId)) {
+                            openCategory(categoryId);
+                        }
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+            }
+
+            function openCategory(categoryId) {
+                const toggleButton = document.querySelector('.toggle-services[data-category-id="' + categoryId + '"]');
+                const icon = toggleButton.querySelector('i');
+                const servicesList = document.querySelector('.services-list[data-category-id="' + categoryId + '"]');
+                servicesList.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#toggle-categories').click(function () {
+                $('#categories-list').toggle();
+                var icon = $(this).find('i');
+                icon.toggleClass('fa-circle-chevron-down fa-circle-chevron-up');
+            });
+
+            $('.toggle-services').click(function () {
+                var categoryId = $(this).data('category-id');
+                var servicesList = $('.services-list[data-category-id="' + categoryId + '"]');
+                servicesList.toggle();
+                var icon = $(this).find('i');
+                icon.toggleClass('fa-chevron-down fa-chevron-up');
+            });
+        });
+    </script>
+}
+

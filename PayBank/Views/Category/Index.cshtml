@@ -1,0 +1,72 @@
+﻿@using Core.DBModel
+@model IEnumerable<EntityCategory>
+@{
+
+}
+
+<div class="container py-4">
+    <div class="row mb-5">
+        <div class="col">
+            <a class="btn btn-primary" asp-controller="Category" asp-action="Create">Adauga Categorie</a>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        var alertType = TempData["AlertType"]?.ToString() ?? "info";
+        <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+            <strong>@TempData["Message"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" asp-action="Index" class="d-flex">
+                <input name="Search" class="form-control me-1" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Categorie</th>
+                <th>Nume</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td style="white-space:nowrap">
+                        <a class="btn btn-primary btn-sm" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id">Edit</a>
+                        <a class="btn btn-primary btn-sm" style="background-color: #dd4b39;" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" onclick="deleteCategory(@category.Id); return false;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    function deleteCategory(categoryId) {
+        if (confirm('Are you sure you want to delete this service?')) {
+            $.ajax({
+                url: '/Category/Delete/' + categoryId,
+                type: 'DELETE',
+                success: function (result) {
+                    window.location.href = '/Category/Index';
+                },
+                error: function (xhr, status, error) {
+                var errorResponse = xhr.responseJSON;
+                if (errorResponse && errorResponse.resultCode) {
+                    alert('Error deleting author: ' + errorResponse.resultCode);
+                } else {
+                    alert('Error deleting author');
+                }
+            }
+            });
+        }
+    }
+</script>

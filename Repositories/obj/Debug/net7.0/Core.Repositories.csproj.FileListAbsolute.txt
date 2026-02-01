@@ -1,0 +1,63 @@
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.deps.json
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.dll
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.pdb
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.dll
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.dll
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.dll
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.dll
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.pdb
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.pdb
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.pdb
+D:\files\New folder\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.pdb
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.AssemblyReference.cache
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfoInputs.cache
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfo.cs
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.CoreCompileInputs.cache
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Rep.156DF7F2.Up2Date
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.dll
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\refint\Core.Repositories.dll
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.pdb
+D:\files\New folder\Pay.Net\Repositories\obj\Debug\net7.0\ref\Core.Repositories.dll
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.AssemblyReference.cache
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfoInputs.cache
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfo.cs
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.CoreCompileInputs.cache
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.deps.json
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.dll
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.pdb
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.dll
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.dll
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.dll
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.dll
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.pdb
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.pdb
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.pdb
+C:\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.pdb
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Rep.156DF7F2.Up2Date
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.dll
+C:\Pay.Net\Repositories\obj\Debug\net7.0\refint\Core.Repositories.dll
+C:\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.pdb
+C:\Pay.Net\Repositories\obj\Debug\net7.0\ref\Core.Repositories.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.deps.json
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Repositories.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBModel.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.DBUtils.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Model.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\bin\Debug\net7.0\Core.Utils.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.AssemblyReference.cache
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfoInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.AssemblyInfo.cs
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Rep.156DF7F2.Up2Date
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\refint\Core.Repositories.dll
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\Core.Repositories.pdb
+C:\Users\BRX\Downloads\Pay.Net\Repositories\obj\Debug\net7.0\ref\Core.Repositories.dll

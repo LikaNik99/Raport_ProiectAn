@@ -1,0 +1,409 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Pay.Net.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Pay.Net.zk9skie2mi.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\Img\\1.png",
+      "PackagePath": "staticwebassets\\Img\\1.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\Img\\2.png",
+      "PackagePath": "staticwebassets\\Img\\2.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\Img\\3.png",
+      "PackagePath": "staticwebassets\\Img\\3.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\0028ceff-c1e8-4fe8-b9dc-0cfabfdde132.png",
+      "PackagePath": "staticwebassets\\SImg\\0028ceff-c1e8-4fe8-b9dc-0cfabfdde132.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\03585a23-6fb8-4844-9e65-9d7b6738aaf0.png",
+      "PackagePath": "staticwebassets\\SImg\\03585a23-6fb8-4844-9e65-9d7b6738aaf0.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\10983473-bbf2-4f90-a76c-eac1ef60a421.png",
+      "PackagePath": "staticwebassets\\SImg\\10983473-bbf2-4f90-a76c-eac1ef60a421.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\198715cb-4e56-4bf9-b856-dd713c41ae75.png",
+      "PackagePath": "staticwebassets\\SImg\\198715cb-4e56-4bf9-b856-dd713c41ae75.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\225b7044-6d6c-432a-88a4-32ef37628a25.png",
+      "PackagePath": "staticwebassets\\SImg\\225b7044-6d6c-432a-88a4-32ef37628a25.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\24026f22-61d4-44ee-b89b-26bcb29c915f.png",
+      "PackagePath": "staticwebassets\\SImg\\24026f22-61d4-44ee-b89b-26bcb29c915f.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\421985cf-2892-4d09-b526-f87fd332ba79.png",
+      "PackagePath": "staticwebassets\\SImg\\421985cf-2892-4d09-b526-f87fd332ba79.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\441a17f2-511f-4a0d-a7e4-ef81b430f966.png",
+      "PackagePath": "staticwebassets\\SImg\\441a17f2-511f-4a0d-a7e4-ef81b430f966.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\481f7b35-38a9-4ccd-b711-18a007f8fc73.png",
+      "PackagePath": "staticwebassets\\SImg\\481f7b35-38a9-4ccd-b711-18a007f8fc73.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\48cbff56-fb6e-406e-9834-6d8db5a7c699.png",
+      "PackagePath": "staticwebassets\\SImg\\48cbff56-fb6e-406e-9834-6d8db5a7c699.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\6535decd-baff-4e7e-8bb0-3085ea8faa39.png",
+      "PackagePath": "staticwebassets\\SImg\\6535decd-baff-4e7e-8bb0-3085ea8faa39.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\68171ea0-60d7-4a0e-bb08-6c7ca8150dad.png",
+      "PackagePath": "staticwebassets\\SImg\\68171ea0-60d7-4a0e-bb08-6c7ca8150dad.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\6d514ddd-5e5a-4432-bd7c-850716e48011.png",
+      "PackagePath": "staticwebassets\\SImg\\6d514ddd-5e5a-4432-bd7c-850716e48011.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\702d6761-e0f3-48c3-88e6-6f0029acb244.png",
+      "PackagePath": "staticwebassets\\SImg\\702d6761-e0f3-48c3-88e6-6f0029acb244.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\7b9bc35a-c1b9-4195-96cb-b47cc4e8a49f.png",
+      "PackagePath": "staticwebassets\\SImg\\7b9bc35a-c1b9-4195-96cb-b47cc4e8a49f.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\8a7b0a1e-a6f6-4732-a95f-52405194e5e1.png",
+      "PackagePath": "staticwebassets\\SImg\\8a7b0a1e-a6f6-4732-a95f-52405194e5e1.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\8c5721f7-a023-4369-81de-eb8ca181b55a.png",
+      "PackagePath": "staticwebassets\\SImg\\8c5721f7-a023-4369-81de-eb8ca181b55a.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\91b631c0-536a-42a2-9c9d-f8b74ad9135e.png",
+      "PackagePath": "staticwebassets\\SImg\\91b631c0-536a-42a2-9c9d-f8b74ad9135e.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\NoImage.jpg",
+      "PackagePath": "staticwebassets\\SImg\\NoImage.jpg"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\a4fe1e2e-0350-40df-9871-19372d7eded8.png",
+      "PackagePath": "staticwebassets\\SImg\\a4fe1e2e-0350-40df-9871-19372d7eded8.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\a7a34f73-5057-460b-845f-00ca3a669119.png",
+      "PackagePath": "staticwebassets\\SImg\\a7a34f73-5057-460b-845f-00ca3a669119.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\b5139b3e-19c3-43d7-b00a-a05cfddda312.png",
+      "PackagePath": "staticwebassets\\SImg\\b5139b3e-19c3-43d7-b00a-a05cfddda312.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\d1e24ffd-d2f4-416a-ad26-b0c46ae58543.png",
+      "PackagePath": "staticwebassets\\SImg\\d1e24ffd-d2f4-416a-ad26-b0c46ae58543.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\d771fa12-4056-4d20-8820-66e41201619e.png",
+      "PackagePath": "staticwebassets\\SImg\\d771fa12-4056-4d20-8820-66e41201619e.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\dd2246ca-ba5e-478a-a626-af32fa7f0fdf.png",
+      "PackagePath": "staticwebassets\\SImg\\dd2246ca-ba5e-478a-a626-af32fa7f0fdf.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\e1f57cc9-c9b8-45a8-b165-38c5ed00200b.png",
+      "PackagePath": "staticwebassets\\SImg\\e1f57cc9-c9b8-45a8-b165-38c5ed00200b.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\e7da8d57-8585-4787-865e-5630387d53c8.png",
+      "PackagePath": "staticwebassets\\SImg\\e7da8d57-8585-4787-865e-5630387d53c8.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\ec0239a2-9b3b-4c39-be90-23d8ac28f433.jpg",
+      "PackagePath": "staticwebassets\\SImg\\ec0239a2-9b3b-4c39-be90-23d8ac28f433.jpg"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\ed46800d-2db8-4788-b5c9-d238a28eaed1.png",
+      "PackagePath": "staticwebassets\\SImg\\ed46800d-2db8-4788-b5c9-d238a28eaed1.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\f5465c1b-2196-46bb-b440-701918e28447.png",
+      "PackagePath": "staticwebassets\\SImg\\f5465c1b-2196-46bb-b440-701918e28447.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\fe1dbbf2-7c70-4e82-bfc7-fba6c0da97ba.png",
+      "PackagePath": "staticwebassets\\SImg\\fe1dbbf2-7c70-4e82-bfc7-fba6c0da97ba.png"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\SImg\\fe7448fd-8c59-4d82-9a0e-86206ce14c97.jpg",
+      "PackagePath": "staticwebassets\\SImg\\fe7448fd-8c59-4d82-9a0e-86206ce14c97.jpg"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\files\\New folder\\Pay.Net\\Pay.Net\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Pay.Net.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Pay.Net.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Pay.Net.props",
+      "PackagePath": "build\\Pay.Net.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Pay.Net.props",
+      "PackagePath": "buildMultiTargeting\\Pay.Net.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Pay.Net.props",
+      "PackagePath": "buildTransitive\\Pay.Net.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

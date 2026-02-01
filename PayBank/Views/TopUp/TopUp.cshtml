@@ -1,0 +1,86 @@
+﻿@model TopUpViewModel
+@{
+
+}
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="col-md-8 mx-auto rounded border p-3">
+            <h2 class="text-center mb-5">Plătește serviciul</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                @if (Model.TranId > 0)
+                {
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Numărul plății</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" readonly value="@Model.TranId" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Suma</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" readonly value="@Model.Amount" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Suma</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Amount" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Numărul Cardului</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Pan" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Data</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Expire" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">CVC</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Cvc" class="form-control" />
+                        </div>
+                    </div>
+                }
+                
+               
+                @if (TempData["Message"] != null)
+                {
+                    var alertType = TempData["AlertType"]?.ToString() ?? "info";
+                    <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+                        <strong>@TempData["Message"]</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                <div class="row">
+                    @if (Model.TranId == 0)
+                    {
+                        <div class="offset-sm-4 col-sm-4 d-grid">
+                            <button type="submit" class="btn btn-primary">Plătește</button>
+                        </div>
+
+                        <div class="col-sm-4 d-grid">
+                            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Services" role="button">Înapoi</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-12 d-grid">
+                            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Services" role="button">Înapoi</a>
+                        </div>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
