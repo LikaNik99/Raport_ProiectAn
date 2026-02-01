@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fitness Tracker - Urmărește-ți antrenamentele, setează obiective și monitorizează-ți progresul">
+    <title>Fitness Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Container Notificări -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Overlay Încărcare -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Secțiunea Autentificare -->
+    <div class="auth-container" id="authSection">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <div class="logo-icon">🏋️</div>
+                <h1>Fitness Tracker</h1>
+                <p>Partenerul tău personal de fitness</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Autentificare</button>
+                <button class="auth-tab" data-tab="register">Înregistrare</button>
+            </div>
+
+            <!-- Formular Autentificare -->
+            <form class="auth-form active" id="loginForm" data-form="login">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="Introdu adresa de email"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Parolă</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="Introdu parola" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                    Autentificare
+                </button>
+            </form>
+
+            <!-- Formular Înregistrare -->
+            <form class="auth-form" id="registerForm" data-form="register">
+                <div class="form-group">
+                    <label class="form-label" for="registerName">Nume Complet</label>
+                    <input type="text" class="form-input" id="registerName" placeholder="Introdu numele tău" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="registerEmail">Email</label>
+                    <input type="email" class="form-input" id="registerEmail" placeholder="Introdu adresa de email"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="registerPassword">Parolă</label>
+                    <input type="password" class="form-input" id="registerPassword"
+                        placeholder="Creează o parolă (min 6 caractere)" required minlength="6">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="registerAge">Vârstă</label>
+                        <input type="number" class="form-input" id="registerAge" placeholder="Vârstă" min="10"
+                            max="120">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="registerSex">Sex</label>
+                        <select class="form-select" id="registerSex">
+                            <option value="">Selectează</option>
+                            <option value="male">Masculin</option>
+                            <option value="female">Feminin</option>
+                            <option value="other">Altul</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="registerHeight">Înălțime (cm)</label>
+                        <input type="number" class="form-input" id="registerHeight" placeholder="170" min="100"
+                            max="250">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="registerWeight">Greutate (kg)</label>
+                        <input type="number" class="form-input" id="registerWeight" placeholder="70" min="30" max="300"
+                            step="0.1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="registerActivity">Nivel de Activitate</label>
+                    <select class="form-select" id="registerActivity">
+                        <option value="beginner">Începător</option>
+                        <option value="intermediate">Intermediar</option>
+                        <option value="advanced">Avansat</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                    Creează Cont
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Secțiunea Principală a Aplicației -->
+    <div class="app-container" id="appSection" style="display: none;">
+        <!-- Buton Meniu Mobil -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+        <!-- Bara Laterală -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏋️</div>
+                <h1>FitTracker</h1>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" data-page="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span>Panou Principal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-page="workouts">
+                        <span class="nav-icon">💪</span>
+                        <span>Antrenamente</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-page="goals">
+                        <span class="nav-icon">🎯</span>
+                        <span>Obiective</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-page="progress">
+                        <span class="nav-icon">📈</span>
+                        <span>Progres</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-page="profile">
+                        <span class="nav-icon">👤</span>
+                        <span>Profil</span>
+                    </a>
+                </li>
+                <li class="nav-item" id="adminNavItem" style="display: none;">
+                    <a class="nav-link" data-page="admin">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Panou Admin</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="theme-toggle">
+                    <span class="theme-toggle-label">Mod Întunecat</span>
+                    <div class="theme-switch" id="themeSwitch"></div>
+                </div>
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Utilizator</div>
+                        <div class="user-role" id="userRole">Membru</div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 0.75rem;" id="logoutBtn">
+                    Deconectare
+                </button>
+            </div>
+        </aside>
+
+        <!-- Conținut Principal -->
+        <main class="main-content">
+            <!-- Pagina Panou Principal -->
+            <section class="page-section active" id="dashboardPage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Panou Principal</h2>
+                        <p>Bine ai revenit! Iată prezentarea ta fitness.</p>
+                    </div>
+                    <button class="btn btn-primary" id="quickWorkoutBtn">
+                        <span>+</span> Antrenament Rapid
+                    </button>
+                </div>
+
+                <div class="stats-grid" id="dashboardStats">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">🏃</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="weekWorkouts">0</div>
+                            <div class="stat-label">Antrenamente Săptămâna Aceasta</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon secondary">⏱️</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="weekDuration">0</div>
+                            <div class="stat-label">Minute Active</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon accent">🔥</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="weekCalories">0</div>
+                            <div class="stat-label">Calorii Arse</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon danger">⚖️</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="currentWeight">--</div>
+                            <div class="stat-label">Greutate Curentă (kg)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-main">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Antrenamente Recente</h3>
+                                <a class="btn btn-secondary btn-sm" data-page="workouts">Vezi Tot</a>
+                            </div>
+                            <div class="workout-list" id="recentWorkouts">
+                                <div class="empty-state">
+                                    <div class="empty-icon">💪</div>
+                                    <h4 class="empty-title">Niciun antrenament încă</h4>
+                                    <p class="empty-text">Începe să îți înregistrezi antrenamentele pentru a le vedea
+                                        aici</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-sidebar">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recomandări</h3>
+                            </div>
+                            <div class="recommendation-list" id="recommendations">
+                                <div class="recommendation-item">
+                                    <span class="recommendation-icon">💡</span>
+                                    <p class="recommendation-text">Se încarcă recomandările...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pagina Antrenamente -->
+            <section class="page-section" id="workoutsPage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Antrenamente</h2>
+                        <p>Înregistrează și gestionează sesiunile tale de antrenament</p>
+                    </div>
+                    <button class="btn btn-primary" id="addWorkoutBtn">
+                        <span>+</span> Adaugă Antrenament
+                    </button>
+                </div>
+
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Filtrează Antrenamente</h3>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <select class="form-select" id="workoutTypeFilter" style="width: auto;">
+                            <option value="">Toate Tipurile</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="strength">Forță</option>
+                            <option value="hiit">HIIT</option>
+                            <option value="stretching">Stretching</option>
+                            <option value="other">Altele</option>
+                        </select>
+                        <input type="date" class="form-input" id="workoutDateFilter" style="width: auto;">
+                        <button class="btn btn-secondary" id="clearFiltersBtn">Șterge Filtre</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="workout-list" id="workoutsList">
+                        <div class="empty-state">
+                            <div class="empty-icon">🏋️</div>
+                            <h4 class="empty-title">Nu s-au găsit antrenamente</h4>
+                            <p class="empty-text">Adaugă primul tău antrenament pentru a începe</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pagina Obiective -->
+            <section class="page-section" id="goalsPage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Obiective</h2>
+                        <p>Setează și urmărește obiectivele tale fitness</p>
+                    </div>
+                    <button class="btn btn-primary" id="addGoalBtn">
+                        <span>+</span> Adaugă Obiectiv
+                    </button>
+                </div>
+
+                <div class="goals-grid" id="goalsList">
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-icon">🎯</div>
+                        <h4 class="empty-title">Niciun obiectiv setat</h4>
+                        <p class="empty-text">Creează primul tău obiectiv fitness</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pagina Progres -->
+            <section class="page-section" id="progressPage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Progres</h2>
+                        <p>Urmărește-ți evoluția fitness în timp</p>
+                    </div>
+                    <button class="btn btn-primary" id="recordProgressBtn">
+                        <span>+</span> Înregistrează Greutate
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon secondary">📉</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="weightChange">--</div>
+                            <div class="stat-label">Modificare Greutate (kg)</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon primary">🏆</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalWorkoutsAll">0</div>
+                            <div class="stat-label">Total Antrenamente</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon accent">🔥</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalCaloriesAll">0</div>
+                            <div class="stat-label">Total Calorii Arse</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Evoluția Greutății</h3>
+                            <select class="form-select" id="weightPeriod" style="width: auto;">
+                                <option value="week">Ultima Săptămână</option>
+                                <option value="month" selected>Ultima Lună</option>
+                                <option value="year">Ultimul An</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="weightChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Calorii Arse</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="caloriesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pagina Profil -->
+            <section class="page-section" id="profilePage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Profil</h2>
+                        <p>Gestionează setările contului tău</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Informații Personale</h3>
+                        </div>
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label class="form-label" for="profileName">Nume Complet</label>
+                                <input type="text" class="form-input" id="profileName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="profileEmail">Email</label>
+                                <input type="email" class="form-input" id="profileEmail" disabled>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label class="form-label" for="profileAge">Vârstă</label>
+                                    <input type="number" class="form-input" id="profileAge" min="10" max="120">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="profileSex">Sex</label>
+                                    <select class="form-select" id="profileSex">
+                                        <option value="">Selectează</option>
+                                        <option value="male">Masculin</option>
+                                        <option value="female">Feminin</option>
+                                        <option value="other">Altul</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label class="form-label" for="profileHeight">Înălțime (cm)</label>
+                                    <input type="number" class="form-input" id="profileHeight" min="100" max="250">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="profileWeight">Greutate (kg)</label>
+                                    <input type="number" class="form-input" id="profileWeight" min="30" max="300"
+                                        step="0.1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="profileActivity">Nivel de Activitate</label>
+                                <select class="form-select" id="profileActivity">
+                                    <option value="beginner">Începător</option>
+                                    <option value="intermediate">Intermediar</option>
+                                    <option value="advanced">Avansat</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvează Modificări</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Schimbă Parola</h3>
+                        </div>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label class="form-label" for="currentPassword">Parola Curentă</label>
+                                <input type="password" class="form-input" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="newPassword">Parola Nouă</label>
+                                <input type="password" class="form-input" id="newPassword" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="confirmPassword">Confirmă Parola</label>
+                                <input type="password" class="form-input" id="confirmPassword" required minlength="6">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizează Parola</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pagina Admin -->
+            <section class="page-section" id="adminPage">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Panou Admin</h2>
+                        <p>Gestionează utilizatorii și vizualizează statisticile platformei</p>
+                    </div>
+                </div>
+
+                <div class="admin-stats-grid" id="adminStats">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">👥</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalUsers">0</div>
+                            <div class="stat-label">Total Utilizatori</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon secondary">✅</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="activeUsers">0</div>
+                            <div class="stat-label">Utilizatori Activi</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon accent">🏋️</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalPlatformWorkouts">0</div>
+                            <div class="stat-label">Total Antrenamente</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon danger">🎯</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="goalCompletionRate">0%</div>
+                            <div class="stat-label">Rata de Completare Obiective</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Gestionare Utilizatori</h3>
+                        <input type="text" class="form-input" id="userSearch" placeholder="Caută utilizatori..."
+                            style="width: 250px;">
+                    </div>
+                    <div class="table-container">
+                        <table class="table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>Utilizator</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Status</th>
+                                    <th>Înregistrat</th>
+                                    <th>Acțiuni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <tr>
+                                    <td colspan="6" class="empty-state">Se încarcă utilizatorii...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Antrenament -->
+    <div class="modal-overlay" id="workoutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="workoutModalTitle">Adaugă Antrenament</h3>
+                <button class="modal-close" onclick="closeModal('workoutModal')">✕</button>
+            </div>
+            <form id="workoutForm">
+                <input type="hidden" id="workoutId">
+                <div class="form-group">
+                    <label class="form-label" for="workoutType">Tipul Antrenamentului</label>
+                    <select class="form-select" id="workoutType" required>
+                        <option value="cardio">🏃 Cardio</option>
+                        <option value="strength">💪 Forță</option>
+                        <option value="hiit">⚡ HIIT</option>
+                        <option value="stretching">🧘 Stretching</option>
+                        <option value="other">🏋️ Altele</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="workoutDuration">Durată (minute)</label>
+                        <input type="number" class="form-input" id="workoutDuration" min="1" max="600" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="workoutCalories">Calorii Arse</label>
+                        <input type="number" class="form-input" id="workoutCalories" min="0" max="5000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="workoutDate">Data</label>
+                    <input type="date" class="form-input" id="workoutDate" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="workoutNotes">Observații</label>
+                    <textarea class="form-textarea" id="workoutNotes"
+                        placeholder="Cum a fost antrenamentul?"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="closeModal('workoutModal')">Anulează</button>
+                    <button type="submit" class="btn btn-primary">Salvează Antrenament</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Obiectiv -->
+    <div class="modal-overlay" id="goalModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="goalModalTitle">Adaugă Obiectiv</h3>
+                <button class="modal-close" onclick="closeModal('goalModal')">✕</button>
+            </div>
+            <form id="goalForm">
+                <input type="hidden" id="goalId">
+                <div class="form-group">
+                    <label class="form-label" for="goalType">Tipul Obiectivului</label>
+                    <select class="form-select" id="goalType" required>
+                        <option value="weight_loss">📉 Slăbire</option>
+                        <option value="muscle_gain">💪 Creștere Masă Musculară</option>
+                        <option value="endurance">🏃 Rezistență</option>
+                        <option value="workouts_per_week">📅 Antrenamente pe Săptămână</option>
+                        <option value="steps">👟 Pași Zilnici</option>
+                        <option value="custom">⭐ Obiectiv Personalizat</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="goalTarget">Valoare Țintă</label>
+                        <input type="number" class="form-input" id="goalTarget" min="0" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="goalUnit">Unitate</label>
+                        <input type="text" class="form-input" id="goalUnit" placeholder="kg, min, pași..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="goalCurrent">Valoare Curentă</label>
+                    <input type="number" class="form-input" id="goalCurrent" min="0" step="0.1" value="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="goalDeadline">Termen Limită</label>
+                    <input type="date" class="form-input" id="goalDeadline">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="goalDescription">Descriere</label>
+                    <textarea class="form-textarea" id="goalDescription"
+                        placeholder="Descrie obiectivul tău..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('goalModal')">Anulează</button>
+                    <button type="submit" class="btn btn-primary">Salvează Obiectiv</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Progres -->
+    <div class="modal-overlay" id="progressModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Înregistrează Progres</h3>
+                <button class="modal-close" onclick="closeModal('progressModal')">✕</button>
+            </div>
+            <form id="progressForm">
+                <div class="form-group">
+                    <label class="form-label" for="progressWeight">Greutate Curentă (kg)</label>
+                    <input type="number" class="form-input" id="progressWeight" min="30" max="300" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="progressDate">Data</label>
+                    <input type="date" class="form-input" id="progressDate" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="progressNotes">Observații</label>
+                    <textarea class="form-textarea" id="progressNotes" placeholder="Cum te simți?"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="closeModal('progressModal')">Anulează</button>
+                    <button type="submit" class="btn btn-primary">Salvează Progres</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
