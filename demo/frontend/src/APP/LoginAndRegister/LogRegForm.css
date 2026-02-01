@@ -1,0 +1,16 @@
+.container-shadow{
+    box-shadow: 1px 4px 12px 1px rgba(0,0,0,0.63);
+    -webkit-box-shadow: 1px 4px 12px 1px rgba(0,0,0,0.63);
+    -moz-box-shadow: 1px 4px 12px 1px rgba(0,0,0,0.63);
+    padding: 50px;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #a8a8a8;
+    position: relative;
+}
+.errorMessage{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 350px;
+}

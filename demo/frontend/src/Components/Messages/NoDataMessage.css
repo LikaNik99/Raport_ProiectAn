@@ -1,0 +1,15 @@
+.outerDiv{
+    position: absolute;
+    height: 50px;
+    width: 100vh;
+    margin: 10px 0;
+    top: 0;
+    left: 15%;
+    line-height: 20px;
+    padding: 30px;
+}
+.innerDiv{
+    font-family: "Roboto Thin", serif;
+    font-size: 25px;
+    padding: 10px 5px;
+}

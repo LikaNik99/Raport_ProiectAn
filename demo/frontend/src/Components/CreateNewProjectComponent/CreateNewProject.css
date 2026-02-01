@@ -1,0 +1,63 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.labelsInputsBlock{
+    display: flex;
+    flex-direction: row;
+}
+.inputsFirstRow{
+    justify-content: center;
+}
+.labelsInputs{
+    padding: 20px 30px;
+    text-align: center;
+}
+.labelsInputs input, select{
+    padding: 10px;
+    font-size: large;
+    font-weight: 500;
+    margin-left: 5px;
+    border: 1px solid #c5c5c5;
+    border-left: 0;
+    border-right: 0;
+    border-top: none;
+}
+
+.labelsInputs input:active{
+    border: none;
+}
+#projectDescription{
+    resize: none;
+    padding: 10px;
+    border: 1px solid #c5c5c5;
+    border-left: 0;
+    border-right: 0;
+    border-top: none;
+    width: 65%;
+    height: 50px;
+    margin-left: 5px;
+}
+.inputsSecondRow{
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+
+}
+.btn{
+    border: none;
+    height: fit-content;
+    width: fit-content;
+    padding: 15px 20px;
+    font-size: 30px;
+    background-color: #3da8ff;
+    border-radius: 7px;
+    color: white;
+}

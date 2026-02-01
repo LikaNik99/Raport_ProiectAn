@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    generate-unique-name: false
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/main_db
+#    username: artiom
+#    password: admin
+    url: jdbc:mysql://localhost:3306/my_database
+    username: vasile
+    password: admin
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+    main:
+      web-development-type: servlet
+      application:
+    name: crm-demo
+server:
+  port: 8080
+  forward-headers-strategy: framework
+logging:
+  level:
+    org.thymeleaf: DEBUG
+
+security:
+  jwt:
+    token:
+      secret: "THIS_IS_A_64_CHAR_SECRET_KEY_FOR_HS256_AND_IT_MUST_BE_LONG_ENOUGH!!!"
+      access-expiration: 900000 # 15 минут

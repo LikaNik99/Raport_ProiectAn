@@ -1,0 +1,72 @@
+.logsBlock{
+    height: 29.4em;
+    width: 100%;
+    overflow-y: scroll;
+}
+.logsBlock div{
+    border-radius: 10px;
+}
+.no-resize {
+  resize: none;
+}
+.no-resize  textarea {
+    width: 100%;
+}
+
+.inputBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+}
+
+.messageSection button{
+    height: 100%;
+    width: 150px;
+}
+
+.messagesBlock{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 800px;
+    margin: auto;
+    gap: 10px;
+    background-color: #f9f9f9;
+    height: 80vh; /* optional, for scrollable area */
+    overflow-y: auto;
+}
+.messageItem{
+    width: 60%;
+    border: 1px solid #333333;
+    padding: 10px;
+    border-radius: 15px ;
+}
+
+.messageItem {
+    max-width: 60%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* even → left */
+.messageItem.left {
+    align-self: flex-start;
+    background-color: #f2f2f2;
+}
+
+/* odd → right */
+.messageItem.right {
+    align-self: flex-end;
+    background-color: #dff1ff;
+}
+
+.dateAuthor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 6px;
+    font-size: 10px;
+}

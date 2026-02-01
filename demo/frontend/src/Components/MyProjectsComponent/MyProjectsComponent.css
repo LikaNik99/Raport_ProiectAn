@@ -1,0 +1,57 @@
+.bublePageAdd{
+    position: absolute;
+    height: 70%;
+    width: 90%;
+    top: auto;
+    left: 3%;
+}
+.bubleLink{
+   height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    align-items: center;
+    vertical-align: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #1b4965;
+    color: white;
+    background: radial-gradient(circle,rgba(27, 73, 101, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    box-shadow: -32px 16px 84px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -32px 16px 84px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -32px 16px 84px -11px rgba(0,0,0,0.75);
+    animation: jumpingBuble 2s ease-in-out infinite;;
+
+}
+.bubleLink p{
+    line-height: 30px;
+}
+.table-wrapper table td:first-child{
+    display: block;
+    text-align: center;
+}
+
+@keyframes jumpingBuble {
+    0% {
+        transform: translateY(0);
+    }
+    15% {
+        transform: translateY(-50px);
+    }30% {
+        transform: translateY(1px);
+    }45% {
+        transform: translateY(-30px);
+    }60% {
+        transform: translateY(1px);
+    }75% {
+        transform: translateY(-10px);
+    }
+    90%{
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+
+}
