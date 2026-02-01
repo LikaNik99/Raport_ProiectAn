@@ -1,0 +1,25 @@
+services:
+  chat-app:
+    build: 
+      context: ./server
+    container_name: chat-app
+    restart: unless-stopped
+    ports:
+      - "5555:5555"
+    env_file:
+      - ./server/.env
+    volumes:
+      # Use local folders directly (keeps existing data)
+      - ./server/data:/app/data
+      - ./server/uploads:/app/uploads
+      # Mount client folder for UI updates without rebuild
+      - ./client:/client
+    environment:
+      - NODE_ENV=production
+      - DATA_DIR=/app/data
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5555/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

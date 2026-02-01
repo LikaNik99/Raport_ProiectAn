@@ -1,0 +1,11 @@
+{
+    "name": "chat-app-root",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "install:all": "cd server && npm install && cd ../electron && npm install",
+        "start:electron": "cd electron && npm start",
+        "start:server": "cd server && npm run dev",
+        "docker:up": "docker-compose up --build"
+    }
+}

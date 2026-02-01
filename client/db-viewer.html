@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0f21">
+  <title>📊 Database Viewer - Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* DB Viewer specific styles - matching chat app design */
+    body {
+      display: block;
+      align-items: unset;
+      justify-content: unset;
+    }
+
+    .db-app {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Header (same as chat) */
+    .db-header {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      background: rgba(17, 24, 39, 0.78);
+      border-radius: 18px;
+      border: 1px solid var(--glass-stroke);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .db-header h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .db-header h1 span {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 8px 14px;
+      background: var(--primary-600);
+      color: white;
+      border: none;
+      border-radius: var(--radius-m);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      background: var(--primary-700);
+      transform: translateY(-1px);
+    }
+
+    /* Main content area */
+    .db-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .stat-card {
+      background: rgba(10, 16, 32, 0.7);
+      border: 1px solid var(--glass-stroke);
+      border-radius: 18px;
+      padding: 1rem;
+      text-align: center;
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary-600);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    .stat-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Tab Navigation */
+    .tabs-nav {
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tab-btn.active {
+      background: var(--primary-600);
+      color: #fff;
+    }
+
+    /* Table Container */
+    .table-container {
+      flex: 1;
+      background: rgba(10, 16, 32, 0.7);
+      border: 1px solid var(--glass-stroke);
+      border-radius: 18px;
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+
+    .table-header {
+      padding: 12px 16px;
+      background: rgba(15, 23, 42, 0.92);
+      border-bottom: 1px solid var(--glass-stroke);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .table-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .refresh-btn {
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-stroke);
+      color: var(--text);
+      border-radius: var(--radius-m);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .refresh-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--glass-stroke-strong);
+    }
+
+    .table-scroll {
+      flex: 1;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--glass-stroke);
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.6);
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Badges */
+    .db-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .db-badge-admin {
+      background: rgba(239, 68, 68, 0.15);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .db-badge-user {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .db-badge-group {
+      background: rgba(139, 92, 246, 0.15);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .db-badge-direct {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .db-badge-announcement {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    /* Avatar */
+    .avatar-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .db-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--panel-solid);
+      border: 1px solid var(--glass-stroke-strong);
+    }
+
+    /* Message Preview */
+    .msg-preview {
+      max-width: 280px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--muted);
+    }
+
+    .msg-deleted {
+      color: var(--muted);
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    /* Date formatting */
+    .date {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Tab Content */
+    .tab-content {
+      display: none;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .tab-content.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+    }
+
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--glass-stroke);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Error */
+    .error-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-radius: var(--radius-m);
+      padding: 1.5rem;
+      text-align: center;
+      color: #fca5a5;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+    }
+
+    .empty-state-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+    }
+
+    /* ID column */
+    .id-cell {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .db-app {
+        padding: 8px;
+      }
+
+      .db-header {
+        padding: 0 12px;
+      }
+
+      .db-header h1 {
+        font-size: 0.95rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-card {
+        padding: 0.75rem;
+      }
+
+      .stat-value {
+        font-size: 1.25rem;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+      }
+
+      .tabs-nav {
+        width: 100%;
+        overflow-x: auto;
+      }
+    }
+
+    /* Light Mode Overrides */
+    [data-theme="light"] body {
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    [data-theme="light"] .db-header {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(148, 163, 184, 0.3);
+      box-shadow: 0 4px 15px rgba(148, 163, 184, 0.1);
+    }
+
+    [data-theme="light"] .db-header h1 {
+      color: #1e293b;
+    }
+
+    [data-theme="light"] .stat-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(148, 163, 184, 0.3);
+      box-shadow: 0 4px 6px rgba(148, 163, 184, 0.05);
+    }
+
+    [data-theme="light"] .stat-card:hover {
+      background: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    [data-theme="light"] .stat-label {
+      color: #64748b;
+    }
+
+    [data-theme="light"] .tabs-nav {
+      background: rgba(226, 232, 240, 0.6);
+    }
+
+    [data-theme="light"] .tab-btn {
+      color: #64748b;
+    }
+
+    [data-theme="light"] .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1e293b;
+    }
+
+    [data-theme="light"] .tab-btn.active {
+      background: var(--primary-600);
+      color: #fff;
+    }
+
+    [data-theme="light"] .table-container {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(148, 163, 184, 0.3);
+      box-shadow: 0 4px 6px rgba(148, 163, 184, 0.05);
+    }
+
+    [data-theme="light"] .table-header {
+      background: rgba(248, 250, 252, 0.95);
+      border-bottom-color: rgba(148, 163, 184, 0.3);
+    }
+
+    [data-theme="light"] .table-header h3 {
+      color: #1e293b;
+    }
+
+    [data-theme="light"] .refresh-btn {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.4);
+      color: #1e293b;
+    }
+
+    [data-theme="light"] .refresh-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    [data-theme="light"] th {
+      background: rgba(241, 245, 249, 0.9);
+      border-bottom-color: rgba(148, 163, 184, 0.3);
+      color: #475569;
+    }
+
+    [data-theme="light"] td {
+      border-bottom-color: rgba(148, 163, 184, 0.2);
+      color: #334155;
+    }
+
+    [data-theme="light"] tr:hover td {
+      background: rgba(241, 245, 249, 0.5);
+    }
+
+    [data-theme="light"] .id-cell {
+      color: var(--primary-700);
+    }
+
+    [data-theme="light"] .msg-preview {
+      color: #64748b;
+    }
+
+    [data-theme="light"] .date {
+      color: #94a3b8;
+    }
+
+    [data-theme="light"] .db-avatar {
+      background: #e2e8f0;
+      border-color: #cbd5e1;
+    }
+
+    [data-theme="light"] .empty-state {
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="db-app">
+    <!-- Header -->
+    <header class="db-header">
+      <h1>📊 Database Viewer <span>• Admin Panel</span></h1>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="theme-toggle" title="Schimbă tema" aria-label="Schimbă tema">
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+            <div class="toggle-icons">
+              <span class="icon-sun">☀️</span>
+              <span class="icon-moon">🌙</span>
+            </div>
+          </div>
+        </div>
+        <a href="/" class="back-btn">← Înapoi la Chat</a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="db-content">
+      <!-- Stats -->
+      <div id="stats-grid" class="stats-grid">
+        <div class="stat-card">
+          <div class="loading">Se încarcă...</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="users">👤 Utilizatori</button>
+        <button class="tab-btn" data-tab="conversations">💬 Conversații</button>
+        <button class="tab-btn" data-tab="messages">📝 Mesaje</button>
+      </div>
+
+      <!-- Users Tab -->
+      <div id="tab-users" class="tab-content active">
+        <div class="table-container">
+          <div class="table-header">
+            <h3>👤 Utilizatori</h3>
+            <button class="refresh-btn" onclick="loadData()">🔄 Reîmprospătează</button>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Utilizator</th>
+                  <th>Rol</th>
+                  <th>Creat la</th>
+                </tr>
+              </thead>
+              <tbody id="users-body">
+                <tr>
+                  <td colspan="4" class="loading">Se încarcă...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conversations Tab -->
+      <div id="tab-conversations" class="tab-content">
+        <div class="table-container">
+          <div class="table-header">
+            <h3>💬 Conversații</h3>
+            <button class="refresh-btn" onclick="loadData()">🔄 Reîmprospătează</button>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nume / Tip</th>
+                  <th>Membri</th>
+                  <th>Mesaje</th>
+                  <th>Creat la</th>
+                </tr>
+              </thead>
+              <tbody id="conversations-body">
+                <tr>
+                  <td colspan="5" class="loading">Se încarcă...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messages Tab -->
+      <div id="tab-messages" class="tab-content">
+        <div class="table-container">
+          <div class="table-header">
+            <h3>📝 Ultimele 50 Mesaje</h3>
+            <button class="refresh-btn" onclick="loadData()">🔄 Reîmprospătează</button>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>De la</th>
+                  <th>Conv.</th>
+                  <th>Conținut</th>
+                  <th>Trimis la</th>
+                </tr>
+              </thead>
+              <tbody id="messages-body">
+                <tr>
+                  <td colspan="5" class="loading">Se încarcă...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme Management
+    function getTheme() { return localStorage.getItem('theme') || 'light'; }
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() {
+      const current = getTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    }
+    // Init theme immediately
+    setTheme(getTheme());
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+    // Check auth
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Trebuie să fii autentificat!');
+      window.location.href = '/';
+    }
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Format date
+    function formatDate(dateStr) {
+      if (!dateStr) return '-';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('ro-RO') + ' ' + d.toLocaleTimeString('ro-RO', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // Get default avatar
+    function getAvatar(url, username) {
+      if (url) return url;
+      const lower = (username || '').toLowerCase();
+      if (lower === 'ai_assistant') return '/assets/avatars/default_ai.png';
+      if (lower === 'admin') return '/assets/avatars/default_admin.png';
+      return '/assets/avatars/default_user.png';
+    }
+
+    // Load data
+    async function loadData() {
+      const headers = { 'Authorization': 'Bearer ' + token };
+
+      try {
+        // Stats
+        const statsRes = await fetch('/api/admin/db-stats', { headers });
+        if (statsRes.status === 403) {
+          document.getElementById('stats-grid').innerHTML = `
+            <div class="error-box" style="grid-column: 1/-1;">⛔ Acces interzis - doar pentru administratori</div>
+          `;
+          return;
+        }
+        if (!statsRes.ok) throw new Error('Eroare server');
+        const stats = await statsRes.json();
+
+        document.getElementById('stats-grid').innerHTML = `
+          <div class="stat-card">
+            <div class="stat-icon">👤</div>
+            <div class="stat-value">${stats.users || 0}</div>
+            <div class="stat-label">Utilizatori</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💬</div>
+            <div class="stat-value">${stats.conversations || 0}</div>
+            <div class="stat-label">Conversații</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📝</div>
+            <div class="stat-value">${stats.messages || 0}</div>
+            <div class="stat-label">Mesaje</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-value">${stats.groups || 0}</div>
+            <div class="stat-label">Grupuri</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔗</div>
+            <div class="stat-value">${stats.directChats || 0}</div>
+            <div class="stat-label">DM</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📣</div>
+            <div class="stat-value">${stats.announcements || 0}</div>
+            <div class="stat-label">Anunțuri</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">😀</div>
+            <div class="stat-value">${stats.reactions || 0}</div>
+            <div class="stat-label">Reacții</div>
+          </div>
+        `;
+
+        // Users
+        const usersRes = await fetch('/api/admin/db-tables/users', { headers });
+        const users = await usersRes.json();
+
+        if (users.length === 0) {
+          document.getElementById('users-body').innerHTML = `
+            <tr><td colspan="4" class="empty-state"><div class="empty-state-icon">👤</div>Nu există utilizatori</td></tr>
+          `;
+        } else {
+          document.getElementById('users-body').innerHTML = users.map(u => `
+            <tr>
+              <td class="id-cell">#${u.id}</td>
+              <td>
+                <div class="avatar-cell">
+                  <img class="db-avatar" src="${getAvatar(u.avatar_url, u.username)}" alt="" onerror="this.src='/assets/avatars/default_user.png'">
+                  <span>${u.username}</span>
+                </div>
+              </td>
+              <td><span class="db-badge db-badge-${u.role || 'user'}">${u.role || 'user'}</span></td>
+              <td class="date">${formatDate(u.created_at)}</td>
+            </tr>
+          `).join('');
+        }
+
+        // Conversations
+        const convsRes = await fetch('/api/admin/db-tables/conversations', { headers });
+        const convs = await convsRes.json();
+
+        if (convs.length === 0) {
+          document.getElementById('conversations-body').innerHTML = `
+            <tr><td colspan="5" class="empty-state"><div class="empty-state-icon">💬</div>Nu există conversații</td></tr>
+          `;
+        } else {
+          document.getElementById('conversations-body').innerHTML = convs.map(c => `
+            <tr>
+              <td class="id-cell">#${c.id}</td>
+              <td>
+                ${c.name ? `<strong>${c.name}</strong>` : '<em style="opacity:0.5">Chat direct</em>'}
+                <span class="db-badge db-badge-${c.type}" style="margin-left:0.5rem">${c.type}</span>
+                ${c.is_announcement ? '<span class="db-badge db-badge-announcement" style="margin-left:0.25rem">📣</span>' : ''}
+              </td>
+              <td>${c.member_count}</td>
+              <td>${c.message_count}</td>
+              <td class="date">${formatDate(c.created_at)}</td>
+            </tr>
+          `).join('');
+        }
+
+        // Messages
+        const msgsRes = await fetch('/api/admin/db-tables/messages', { headers });
+        const msgs = await msgsRes.json();
+
+        if (msgs.length === 0) {
+          document.getElementById('messages-body').innerHTML = `
+            <tr><td colspan="5" class="empty-state"><div class="empty-state-icon">📝</div>Nu există mesaje</td></tr>
+          `;
+        } else {
+          document.getElementById('messages-body').innerHTML = msgs.map(m => `
+            <tr>
+              <td class="id-cell">#${m.id}</td>
+              <td>${m.sender_name || 'Necunoscut'}</td>
+              <td>#${m.conversation_id}</td>
+              <td class="msg-preview ${m.is_deleted ? 'msg-deleted' : ''}">
+                ${m.is_deleted ? '[Șters]' : (m.type === 'file' ? '📎 Fișier' : (m.content || '-'))}
+              </td>
+              <td class="date">${formatDate(m.created_at)}</td>
+            </tr>
+          `).join('');
+        }
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('stats-grid').innerHTML = `
+          <div class="error-box" style="grid-column: 1/-1;">❌ Eroare la încărcarea datelor: ${err.message}</div>
+        `;
+      }
+    }
+
+    // Initial load
+    loadData();
+
+    // Auto-refresh every 30 seconds
+    setInterval(loadData, 30000);
+  </script>
+</body>
+
+</html>

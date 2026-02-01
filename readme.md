@@ -1,23 +1,50 @@
-# Lucrări Studenți – Proiect Git
+# Chat Multiutilizator
 
-## Descriere
-
-Acest repository conține lucrările studenților, organizate pe branch-uri separate. Fiecare student are propriul branch, de obicei cu numele utilizatorului (ex: `josu_ion`, `cocieru_emil`). Branch-ul principal, `main`, conține versiunea consolidată și/sau instrucțiuni generale.[web:17][web:18]
-
-Pentru a vizualiza lucrările unui anumit student, trebuie să comuți pe branch-ul corespunzător folosind Git sau interfața web GitHub.[web:16][web:19]
+Navigați în folderul proiectului:
+```bash
+cd Chat Multiutilizator
+```
 
 ---
 
-## Cum comuți între branch-uri (linie de comandă)
+## Pornire cu Docker
 
-1. **Comută pe branch-ul studentului dorit**
+Pornire:
+```bash
+docker-compose up --build
+```
 
-   ```bash
-   git checkout [nume-student]
+Oprire:
+```bash
+docker-compose down
+```
 
-   git checkout josu_ion      # Lucrările lui Josu Ion
-   git checkout cocieru_emil  # Lucrările lui Cocieru Emil
+Rulare în fundal:
+```bash
+docker-compose up -d --build
+```
 
-Pentru a reveni in branchiul principal apelam
-   ```bash
-   git checkout main
+Aplicația va fi disponibilă pe http://localhost:5555
+
+---
+
+## Pornire manuală (fără Docker)
+
+### Server
+
+1. Instalare dependințe:
+```bash
+npm run install:all
+```
+
+2. Pornire server:
+```bash
+npm run start:server
+```
+
+### Electron
+
+Pornire client (alt terminal):
+```bash
+npm run start:electron
+```

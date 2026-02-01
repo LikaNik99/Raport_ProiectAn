@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Database files (will be created fresh in container)
+*.db
+*.db-wal
+*.db-shm
+
+# Uploads (will use volume)
+uploads/*
+!uploads/.gitkeep
+
+# Development files
+.env.local
+.env.development
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Electron (not needed in Docker)
+electron-main.cjs
+
+# Documentation
+README.md
+*.md

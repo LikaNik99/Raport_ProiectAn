@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <meta name="theme-color" content="#0a0f21" />
+  <script>
+    // Pre-apply theme to prevent flash
+    (function () {
+      try {
+        const t = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
+  <title>Chat Multiutilizator</title>
+  <link rel="stylesheet" href="css/style.css?v=15" />
+</head>
+
+<body>
+  <!-- Autentificare -->
+  <div id="auth" class="hidden" role="dialog" aria-labelledby="auth-title">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 id="auth-title" style="margin:0;">Autentificare</h2>
+        <div class="theme-toggle" id="login-theme-toggle" title="Schimbă tema" aria-label="Schimbă tema">
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+            <div class="toggle-icons">
+              <span class="icon-sun">☀️</span>
+              <span class="icon-moon">🌙</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Autentificare">
+        <button id="tab-login" class="active" role="tab" aria-selected="true" aria-controls="login-form">Login</button>
+        <button id="tab-register" role="tab" aria-selected="false" aria-controls="register-form">Register</button>
+      </div>
+
+      <div id="login-form" class="form" role="tabpanel" aria-labelledby="tab-login">
+        <input id="login-username" placeholder="Username" autocomplete="username" />
+        <input id="login-password" type="password" placeholder="Parola" autocomplete="current-password" />
+        <button id="btn-login">Intră</button>
+        <div class="error" id="login-error" aria-live="polite"></div>
+      </div>
+
+      <div id="register-form" class="form hidden" role="tabpanel" aria-labelledby="tab-register">
+        <input id="register-username" placeholder="Username" autocomplete="username" />
+        <input id="register-password" type="password" placeholder="Parola (min 6)" autocomplete="new-password" />
+        <button id="btn-register">Creează cont</button>
+        <div class="error" id="register-error" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aplicație -->
+  <div id="app" class="hidden" aria-hidden="true">
+    <div id="app-frame" class="app-frame">
+
+      <header>
+        <div class="brand-wrap">
+          <!-- Toggle drawer mobil (deschide lista de conversații) -->
+          <label for="drawer" id="btn-drawer" class="btn-icon mobile-only" aria-label="Conversații">☰</label>
+          <div class="brand">💬 Chat</div>
+        </div>
+
+        <div class="actions" role="toolbar" aria-label="Acțiuni rapide">
+          <button id="btn-ai" title="AI Assistant" aria-label="AI Assistant">AI
+            <svg fill="#ffae00" height="200px" width="200px" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+              xml:space="preserve" stroke="#ffae00">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <g>
+                    <path d="M498.095,198.122c0-25.763-9.68-50.313-27.257-69.131c-13.197-14.129-29.915-24.039-48.274-28.848
+                    c0.253-2.749,0.397-5.521,0.397-8.313C422.962,41.194,381.768,0,331.133,0C300.099,0,272.631,15.49,256,39.129
+                    C239.369,15.49,211.901,0,180.867,0c-50.635,0-91.828,41.194-91.828,91.828c0,2.794,0.145,5.565,0.397,8.313
+                    c-18.359,4.808-35.075,14.719-48.274,28.848c-17.578,18.819-27.257,43.37-27.257,69.132c0,21.486,6.731,41.427,18.185,57.837
+                    c-11.804,16.895-18.185,37.001-18.185,57.919c0,46.95,32.11,86.538,75.522,97.967c-0.249,2.761-0.39,5.537-0.39,8.327
+                    c0,50.635,41.194,91.828,91.828,91.828c31.035,0,58.503-15.49,75.133-39.129C272.631,496.51,300.099,512,331.133,512
+                    c50.635,0,91.828-41.194,91.828-91.828c0-2.788-0.14-5.565-0.39-8.327c43.412-11.429,75.522-51.016,75.522-97.967
+                    c0-20.919-6.382-41.025-18.185-57.919C491.365,239.549,498.095,219.608,498.095,198.122z M239.304,343.088v77.084
+                    c0,32.221-26.216,58.437-58.437,58.437c-32.223,0-58.437-26.216-58.437-58.437c0-1.771,0.088-3.532,0.245-5.284
+                    c25.807-1.92,50.123-13.714,67.616-33.029l-24.749-22.417c-12.857,14.195-31.206,22.337-50.343,22.337
+                    c-37.442,0-67.902-30.461-67.902-67.901c0-11.892,3.075-23.392,8.834-33.519c16.639,11.985,37.042,19.055,59.068,19.055v-33.391
+                    c-37.442,0-67.902-30.461-67.902-67.901c0-31.399,21.722-58.325,51.228-65.815c10.151,20.567,27.843,37.177,50.093,45.523
+                    l11.728-31.264c-22.678-8.507-37.916-30.504-37.916-54.737c0-32.223,26.216-58.437,58.437-58.437s58.437,26.216,58.437,58.437
+                    v77.084v23.211h-13.79v-23.211h-33.391v23.211h-23.211v33.391h23.211v13.79h-23.211v33.391h23.211v13.789h-23.211v33.391h23.211
+                    v23.211h33.391v-23.211h13.79V343.088z M225.516,286.485v-60.969h60.969v60.969H225.516z M455.869,280.359
+                    c5.759,10.128,8.834,21.628,8.834,33.519c0,37.442-30.461,67.901-67.902,67.901c-19.137,0-37.486-8.141-50.343-22.337
+                    L321.71,381.86c17.494,19.314,41.809,31.107,67.616,33.029c0.157,1.751,0.245,3.513,0.245,5.284
+                    c0,32.223-26.216,58.437-58.437,58.437s-58.438-26.214-58.438-58.437v-77.084v-23.211h13.789v23.211h33.391v-23.211h23.211
+                    v-33.391h-23.211v-13.789h23.211v-33.391h-23.211v-13.79h23.211v-33.391h-23.211v-23.211h-33.391v23.211h-13.789v-23.211V91.828
+                    c0-32.223,26.216-58.437,58.437-58.437s58.437,26.214,58.437,58.437c0,24.232-15.238,46.229-37.916,54.737l11.728,31.264
+                    c22.251-8.347,39.942-24.957,50.094-45.523c29.506,7.491,51.228,34.416,51.228,65.815c0,37.441-30.461,67.901-67.902,67.901
+                    v33.391C418.827,299.414,439.23,292.343,455.869,280.359z"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+
+          <!-- aceste butoane vor fi ascunse pe mobil prin CSS -->
+          <button id="btn-users" title="Utilizatori" aria-label="Utilizatori">Utilizatori 👥</button>
+          <button id="btn-new-group" title="Grup nou" aria-label="Grup nou">Grup 👪</button>
+          <button id="btn-new-announcement" title="Anunț nou" aria-label="Anunț nou">Anunț 📣</button>
+          <button id="btn-db-viewer" class="admin-only hidden" title="Baza de date" aria-label="Baza de date"
+            onclick="window.open('/db-viewer.html', '_blank')">📊 DB</button>
+
+          <!-- Theme Toggle -->
+          <div class="theme-toggle" id="theme-toggle" title="Schimbă tema" aria-label="Schimbă tema">
+            <div class="toggle-track">
+              <div class="toggle-thumb"></div>
+              <div class="toggle-icons">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="profile" title="Profil" aria-label="Profil">
+            <img id="avatar" class="avatar" alt="Avatar utilizator" />
+            <span id="me-name"></span>
+            <input type="file" id="avatar-input" accept="image/*" class="hidden" />
+          </div>
+
+          <button id="btn-logout" title="Logout" aria-label="Logout">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.9999 2C10.2385 2 7.99991 4.23858 7.99991 7C7.99991 7.55228 8.44762 8 8.99991 8C9.55219 8 9.99991 7.55228 9.99991 7C9.99991 5.34315 11.3431 4 12.9999 4H16.9999C18.6568 4 19.9999 5.34315 19.9999 7V17C19.9999 18.6569 18.6568 20 16.9999 20H12.9999C11.3431 20 9.99991 18.6569 9.99991 17C9.99991 16.4477 9.55219 16 8.99991 16C8.44762 16 7.99991 16.4477 7.99991 17C7.99991 19.7614 10.2385 22 12.9999 22H16.9999C19.7613 22 21.9999 19.7614 21.9999 17V7C21.9999 4.23858 19.7613 2 16.9999 2H12.9999Z">
+              </path>
+              <path d="M13.9999 11C14.5522 11 14.9999 11.4477 14.9999 12C14.9999 12.5523 14.5522 13 13.9999 13V11Z">
+              </path>
+              <path
+                d="M5.71783 11C5.80685 10.8902 5.89214 10.7837 5.97282 10.682C6.21831 10.3723 6.42615 10.1004 6.57291 9.90549C6.64636 9.80795 6.70468 9.72946 6.74495 9.67492L6.79152 9.61162L6.804 9.59454L6.80842 9.58848C6.80846 9.58842 6.80892 9.58778 5.99991 9L6.80842 9.58848C7.13304 9.14167 7.0345 8.51561 6.58769 8.19098C6.14091 7.86637 5.51558 7.9654 5.19094 8.41215L5.18812 8.41602L5.17788 8.43002L5.13612 8.48679C5.09918 8.53682 5.04456 8.61033 4.97516 8.7025C4.83623 8.88702 4.63874 9.14542 4.40567 9.43937C3.93443 10.0337 3.33759 10.7481 2.7928 11.2929L2.08569 12L2.7928 12.7071C3.33759 13.2519 3.93443 13.9663 4.40567 14.5606C4.63874 14.8546 4.83623 15.113 4.97516 15.2975C5.04456 15.3897 5.09918 15.4632 5.13612 15.5132L5.17788 15.57L5.18812 15.584L5.19045 15.5872C5.51509 16.0339 6.14091 16.1336 6.58769 15.809C7.0345 15.4844 7.13355 14.859 6.80892 14.4122L5.99991 15C6.80892 14.4122 6.80897 14.4123 6.80892 14.4122L6.804 14.4055L6.79152 14.3884L6.74495 14.3251C6.70468 14.2705 6.64636 14.1921 6.57291 14.0945C6.42615 13.8996 6.21831 13.6277 5.97282 13.318C5.89214 13.2163 5.80685 13.1098 5.71783 13H13.9999V11H5.71783Z">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Toggle vizibil doar pe mobil (controlat via CSS, fără JS) -->
+      <input type="checkbox" id="drawer" class="drawer-toggle" hidden />
+
+      <!-- Layout principal -->
+      <div class="layout has-rail" id="layout">
+        <!-- Rail (ascuns pe mobil) -->
+        <nav class="rail" aria-label="Navigare principală" id="rail">
+          <button class="icon-btn" title="Inbox" aria-label="Inbox">💬</button>
+          <button class="icon-btn" title="Grupuri" aria-label="Grupuri">👥</button>
+          <button class="icon-btn" title="Fișiere" aria-label="Fișiere" disabled>📁</button>
+          <button class="icon-btn" title="Setări" aria-label="Setări" disabled>⚙️</button>
+        </nav>
+
+        <!-- Sidebar conversații (devine drawer pe mobil) -->
+        <aside aria-label="Conversații">
+          <div class="drawer-head mobile-only">
+            <strong>Meniu</strong>
+            <label for="drawer" class="btn-icon" aria-label="Închide lista">✕</label>
+          </div>
+
+          <!-- NOU: acțiuni în drawer pe mobil -->
+          <div class="drawer-actions mobile-only">
+            <button id="drawer-users-btn">Utilizatori 👥</button>
+            <button id="drawer-group-btn">Grup 👪</button>
+            <button id="drawer-ann-btn">Anunț 📣</button>
+            <button id="drawer-files-btn">Fișiere 📁</button>
+            <button id="drawer-settings-btn">Setări ⚙️</button>
+          </div>
+
+          <!-- Titlu pentru desktop (ascuns pe mobil) -->
+          <div class="sidebar-title desktop-only">
+            <strong>Conversații</strong>
+          </div>
+
+          <div class="search">
+            <input id="search-conv" placeholder="Caută conversații..." aria-label="Caută conversații" />
+          </div>
+          <div id="conversations" role="list"></div>
+        </aside>
+
+        <!-- Zona principală chat -->
+        <main role="main" aria-label="Fereastră conversație">
+          <div id="chat-header" role="region" aria-label="Header conversație"></div>
+          <div id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Mesaje"></div>
+
+          <div id="composer" role="group" aria-label="Compune mesaj">
+            <button id="emoji-btn" title="Emoji" aria-label="Emoji">😀</button>
+            <div id="emoji-panel" class="emoji-panel hidden" role="dialog" aria-label="Alege emoji"></div>
+
+            <input id="msg-input" placeholder="Scrie un mesaj..." aria-label="Scrie un mesaj" />
+
+            <input type="file" id="file-input" class="hidden" />
+            <button id="file-btn" title="Atașează fișier" aria-label="Atașează fișier">📎</button>
+
+            <button id="send-btn" title="Trimite" aria-label="Trimite">Trimite</button>
+          </div>
+        </main>
+
+        <!-- Right info panel -->
+        <section id="info-panel" class="right-panel hidden" aria-label="Detalii conversație">
+          <div class="section info-main-section">
+            <div class="info-header-row">
+              <h4>Detalii</h4>
+              <button type="button" id="info-close" class="btn-icon info-close" aria-label="Închide detalii">✕</button>
+            </div>
+            <div id="info-summary">Selectează o conversație</div>
+          </div>
+
+          <div class="section">
+            <h4>Media partajată</h4>
+            <div id="info-media" class="media-grid"></div>
+          </div>
+
+          <div class="section">
+            <h4>Membri</h4>
+            <div id="info-members"></div>
+          </div>
+
+          <div class="section">
+            <button class="hdr-actions btn danger" id="info-leave">Părăsește/Șterge</button>
+          </div>
+        </section>
+      </div>
+      <!-- /layout -->
+
+      <!-- Backdrop pentru drawer (mobil) + Tablet menu -->
+      <!-- Backdrop pentru drawer (mobil) + Tablet overlay -->
+      <label for="drawer" id="drawer-backdrop" aria-hidden="true"></label>
+
+      <!-- Tablet menu content (hidden on mobile, visible on tablet when burger is open) -->
+      <div class="tablet-menu-content">
+        <div class="tablet-menu-header">
+          <strong>Meniu</strong>
+          <span class="btn-icon tablet-close-btn">✕</span>
+        </div>
+        <div class="tablet-menu-actions">
+          <button id="tablet-users-btn">Utilizatori 👥</button>
+          <button id="tablet-group-btn">Grup 👪</button>
+          <button id="tablet-ann-btn">Anunț 📣</button>
+          <button id="tablet-files-btn">Fișiere 📁</button>
+          <button id="tablet-settings-btn">Setări ⚙️</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal Profil (Cabinet) -->
+  <div id="modal-profile" class="modal hidden" role="dialog" aria-labelledby="modal-profile-title" aria-modal="true">
+    <div class="modal-content" style="max-width: 420px;">
+      <h3 id="modal-profile-title">Profilul meu</h3>
+
+      <div class="profile-cabinet">
+        <div class="profile-avatar-section">
+          <div class="profile-avatar-wrap">
+            <img id="profile-avatar-preview" class="avatar large" alt="Avatar utilizator" />
+            <label class="profile-avatar-overlay" for="profile-avatar-input">
+              <span>📷 Schimbă</span>
+            </label>
+            <input type="file" id="profile-avatar-input" accept="image/*" class="hidden" />
+          </div>
+        </div>
+
+        <div class="profile-fields">
+          <label for="profile-username">Nume utilizator</label>
+          <input id="profile-username" type="text" placeholder="Numele tău" autocomplete="username" />
+        </div>
+
+        <div id="profile-error" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="btn-save-profile">Salvează</button>
+        <button class="secondary" data-close="#modal-profile">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backdrop modale -->
+  <div id="modal-backdrop" class="hidden" aria-hidden="true"></div>
+
+  <!-- Modal utilizatori -->
+  <div id="modal-users" class="modal hidden" role="dialog" aria-labelledby="modal-users-title" aria-modal="true">
+    <div class="modal-content">
+      <h3 id="modal-users-title">Utilizatori</h3>
+      <input id="users-search" placeholder="Caută utilizatori..." aria-label="Caută utilizatori" />
+      <div id="users-list" class="list"></div>
+      <div class="modal-actions">
+        <button class="secondary" data-close="#modal-users">Închide</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal grup nou -->
+  <div id="modal-group" class="modal hidden" role="dialog" aria-labelledby="modal-group-title" aria-modal="true">
+    <div class="modal-content">
+      <h3 id="modal-group-title">Creează grup</h3>
+      <input id="group-name" placeholder="Nume grup" aria-label="Nume grup" />
+      <div id="group-users" class="list"></div>
+      <div class="modal-actions">
+        <button id="create-group-btn">Creează</button>
+        <button class="secondary" data-close="#modal-group">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal anunț nou -->
+  <div id="modal-announcement" class="modal hidden" role="dialog" aria-labelledby="modal-ann-title" aria-modal="true">
+    <div class="modal-content">
+      <h3 id="modal-ann-title">Creează anunț</h3>
+      <input id="ann-title" placeholder="Titlu anunț" aria-label="Titlu anunț" />
+
+
+      <!-- Comentariu + emoji in textarea -->
+      <div class="ann-input-wrap" style="margin-top:8px;">
+        <textarea id="ann-text" rows="4" placeholder="Mesajul anunțului" aria-label="Mesajul anunțului"></textarea>
+        <button id="ann-emoji-btn" class="btn-icon" type="button" title="Emoji" aria-label="Emoji">😀</button>
+        <div id="ann-emoji-panel" class="emoji-panel hidden" role="dialog" aria-label="Alege emoji pentru anunț"></div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div style="margin-top:10px; display:flex; align-items:center; gap:8px;" id="ann-select-all-wrap">
+          <input type="checkbox" id="ann-select-all" />
+          <span style="cursor:pointer; user-select:none;">Trimite către toți utilizatorii</span>
+        </div>
+      </div>
+
+      <div id="ann-users" class="list" style="margin-top:8px;"></div>
+
+      <!-- Preview fișier atașat -->
+      <div id="ann-preview" class="ann-preview hidden" aria-live="polite"></div>
+
+      <div class="modal-actions">
+        <label class="secondary" style="cursor:pointer;">
+          📎 Atașează fișier
+          <input type="file" id="ann-file" class="hidden" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.zip,.rar,.7z" />
+        </label>
+        <button id="create-announcement-btn">Trimite anunț</button>
+        <button class="secondary" data-close="#modal-announcement">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal editare mesaj (custom prompt) -->
+  <div id="modal-edit-msg" class="modal hidden" role="dialog" aria-labelledby="modal-edit-title" aria-modal="true">
+    <div class="modal-content">
+      <h3 id="modal-edit-title">Editează mesajul</h3>
+      <textarea id="edit-msg-text" rows="4" placeholder="Mesaj..."
+        style="width:100%;margin-top:8px;margin-bottom:12px;padding:10px;border-radius:12px;border:1px solid var(--glass-stroke);background:#0b1220;color:var(--text);resize:vertical;"></textarea>
+      <div class="modal-actions">
+        <button id="btn-save-edit">Salvează</button>
+        <button class="secondary" data-close="#modal-edit-msg">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal confirmare generică -->
+  <div id="modal-confirm" class="modal hidden" role="dialog" aria-labelledby="modal-confirm-title" aria-modal="true"
+    style="z-index: 9999;">
+    <div class="modal-content" style="max-width: 400px;">
+      <h3 id="modal-confirm-title">Confirmare</h3>
+      <div id="modal-confirm-text" style="margin: 12px 0 20px; color: var(--muted);">Ești sigur?</div>
+      <div class="modal-actions">
+        <button id="btn-confirm-yes" class="danger">Da, șterge</button>
+        <button class="secondary" id="btn-confirm-no">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal alertare generică -->
+  <div id="modal-alert" class="modal hidden" role="dialog" aria-labelledby="modal-alert-title" aria-modal="true"
+    style="z-index: 10000;">
+    <div class="modal-content" style="max-width: 400px;">
+      <h3 id="modal-alert-title">Atenție</h3>
+      <div id="modal-alert-text" style="margin: 12px 0 20px; color: var(--muted);">Mesaj...</div>
+      <div class="modal-actions" style="justify-content: flex-end;">
+        <button id="btn-alert-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal adăugare membru -->
+  <div id="modal-add-member" class="modal hidden" role="dialog" aria-labelledby="modal-add-member-title"
+    aria-modal="true">
+    <div class="modal-content">
+      <h3 id="modal-add-member-title">Adaugă persoane</h3>
+      <input id="add-member-search" placeholder="Caută..." aria-label="Caută persoane" />
+      <div id="add-member-list" class="list"></div>
+      <div class="modal-actions">
+        <button class="secondary" data-close="#modal-add-member">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Fallback: dacă există butonul AI în HTML, îl legăm de startAIConversation
+    document.addEventListener('DOMContentLoaded', () => {
+      const tryBind = () => {
+        const btn = document.getElementById('btn-ai');
+        if (btn && typeof startAIConversation === 'function') {
+          btn.onclick = (e) => { e.preventDefault(); startAIConversation(); };
+        }
+
+        // Închide drawer-ul după selectarea unei conversații (mobil)
+        const convContainer = document.getElementById('conversations');
+        const drawerToggle = document.getElementById('drawer');
+        if (convContainer && drawerToggle) {
+          convContainer.addEventListener('click', (e) => {
+            const item = e.target?.closest('.item');
+            if (item) drawerToggle.checked = false;
+          });
+        }
+
+        // Închide info-panel din butonul X (fallback dacă nu e legat în JS principal)
+        const infoClose = document.getElementById('info-close');
+        if (infoClose && typeof toggleInfoPanel === 'function') {
+          infoClose.onclick = () => toggleInfoPanel(false);
+        }
+
+        // Theme toggle main
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle && typeof toggleTheme === 'function') {
+          themeToggle.onclick = () => toggleTheme();
+        }
+
+        // Theme toggle login
+        const loginToggle = document.getElementById('login-theme-toggle');
+        if (loginToggle && typeof toggleTheme === 'function') {
+          loginToggle.onclick = () => toggleTheme();
+        }
+      };
+
+      setTimeout(tryBind, 500);
+    });
+  </script>
+</body>
+
+</html>
